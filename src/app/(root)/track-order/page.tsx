@@ -1,7 +1,3 @@
-import Category from '@/src/components/main/Category'
-import Products from '@/src/components/main/Products'
-import SearchBar from '@/src/components/main/SearchBar'
-
 import React from 'react'
 
 const page = () => {
