@@ -2,7 +2,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div>Favourites</div>
+    <div>How it works</div>
   )
 }
 

@@ -6,7 +6,7 @@ const page = () => {
           <h1 className='text-3xl  md:text-4xl font-bold text-white text-center'>Shipping Policy</h1>
           <div className='border border-gray-600 p-8 rounded-lg mt-5 text-white'>
           {shipping.map((item)=>(
-              <div key={item.id} className='mb-10'>
+              <div key={item.id} className='mb-5'>
             <p className='font-bold'>{item.title}</p>
             <p>{item.description}</p>
           </div>

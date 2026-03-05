@@ -3,6 +3,10 @@ import Link from "next/link";
 const GuideLines = () => {
   const guideLines = [
     {
+      name:"Guidelines",
+      path:"/guidelines"
+    },
+    {
       name: "Terms and Conditions",
       path: "/terms-conditions",
     },
@@ -23,9 +27,8 @@ const GuideLines = () => {
   return (
     <>
       <div>
-        <p className="font-bold">Guide Lines</p>
         <div>
-          <ul className="text-white/50 space-y-1 md:space-y-2 mt-2 md:mt-4">
+          <ul className="text-white/50 space-y-1 md:space-y-2 mt-2">
             {guideLines.map((item, index) => (
               <li
                 key={index}
