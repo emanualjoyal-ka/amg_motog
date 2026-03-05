@@ -2,22 +2,30 @@ import Link from "next/link";
 
 const QuickLinks = () => {
   const menuItems = [
-    {
-      name: "Home",
-      path: "/",
+     {
+      name:'Home',
+      path:'/'
     },
     {
-      name: "Shop",
-      path: "/shop",
+      name:'Request Parts',
+      path:'/request-a-part'
     },
     {
-      name: "About Us",
-      path: "/aboutus",
+      name:'How it works',
+      path:'/how-it-works'
     },
     {
-      name: "Contact Us",
-      path: "/contact",
+      name:'Track Order',
+      path:'/track-order'
     },
+    {
+      name:'About Us',
+      path:'/aboutus'
+    },
+    {
+      name:"Contact",
+      path:"/contact"
+    }
   ];
   return (
     <>

@@ -9,8 +9,8 @@ const Footer = () => {
       <div className="flex flex-col gap-6 md:flex-row justify-between">
         <h1 className="md:text-4xl text-3xl  font-bold text-white font-audiowide">AMG</h1>
         <QuickLinks />
-        <GuideLines />
         <Contacts />
+        <GuideLines />
         <FollowUs />
       </div>
       <hr className="my-6 md:my-10 border-none h-0.25 bg-[#1E2939]" />

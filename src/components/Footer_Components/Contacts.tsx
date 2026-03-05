@@ -6,7 +6,7 @@ const Contacts = () => {
       <div>
         <p className="font-bold">Contact</p>
         <div className="space-y-2 md:space-y-3 mt-2 md:mt-4 text-white/50 ">
-          <div className="flex gap-1">
+          <div className="flex gap-1 items-center">
             <div className="w-5 md:w-6 ">
               <svg
                 className="h-full w-full"
@@ -36,7 +36,7 @@ const Contacts = () => {
 
             <p>info@charitydigital.org</p>
           </div>
-          <div className="flex gap-1">
+          <div className="flex gap-1 items-center">
             <div className="w-5 md:w-6 ">
               <svg
                 className="w-full h-full"
@@ -52,9 +52,9 @@ const Contacts = () => {
                 />
               </svg>
             </div>
-            <p>+1 (555) 123-4567</p>
+            <p>+91 73565 72890</p>
           </div>
-          <div className="flex gap-1">
+          <div className="flex gap-1 items-center">
             <div className="w-5 md:w-6 ">
               <svg
                 className="w-full h-full"
@@ -78,7 +78,8 @@ const Contacts = () => {
                 />
               </svg>
             </div>
-            <p>123 Hope Street, City</p>
+            <p className="w-100">Companypady, Cheriyakadav, Kochi,
+Chellanam, Kannamaly, Ernakulam-682008, Kerala</p>
           </div>
         </div>
       </div>
