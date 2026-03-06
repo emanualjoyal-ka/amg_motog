@@ -110,6 +110,11 @@ const NavBar = () => {
               </Link>
             ))
             }
+            <Link href="/contact" 
+                className={`block py-2 px-4 rounded-full text-white hover:bg-white/20 ${pathname === "/contact" ? "bg-white/20" : ""}`}
+            >
+              Contact
+            </Link>
           </div>
           
 
