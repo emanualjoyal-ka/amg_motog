@@ -20,6 +20,13 @@ const RequestForm = () => {
         image: null as File | null
     })
 
+    const [nameError,setNameError]=React.useState(false);
+    const [phoneError,setPhoneError]=React.useState("");
+    const [brandError,setBrandError]=React.useState("");
+    const [modelError,setModelError]=React.useState("");
+    const [partError,setPartError]=React.useState("");
+    const [addressError,setAddressError]=React.useState("");
+    
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
             setForm({ ...form, image: e.target.files[0] });
@@ -28,7 +35,8 @@ const RequestForm = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        alert("Form Submitted");
+        if(form.name===""){setNameError(true)}
+        // alert("Form Submitted");
     }
 
 
@@ -39,11 +47,12 @@ const RequestForm = () => {
         <div className='flex md:flex-row flex-col items-center gap-5'>
          <div className='w-full'>
            <label htmlFor='name'>Full Name</label>
-        <Input id='name' value={form.name} placeholder='e.g. John Doe' onChange={(e) => setForm({...form, name: e.target.value})}/>
+        <Input id='name' error={nameError}  value={form.name} placeholder='e.g. John Doe' onChange={(e) =>{setForm({...form, name: e.target.value}),setNameError(false)}}/>
          </div>
         <div className='w-full'>
           <label htmlFor='number'>Phone Number</label>
         <Input id='number' value={form.phone} onChange={(e) => {
+
   const value = e.target.value.replace(/\D/g, ""); 
   if (value.length <= 10) {
     setForm({...form, phone: value});
@@ -76,7 +85,7 @@ const RequestForm = () => {
          </div>
         <div className='w-full'>
           <label htmlFor='condition'>Condition Preference</label>
-          <ConditionSelect/>
+          <ConditionSelect onSelect={(val) => setForm({...form, condition: val})}/>
         </div>
         <div className='w-full'>
           <label htmlFor='image'>Upload Photo ( Optional )</label>

@@ -1,6 +1,10 @@
 import React, { useEffect, useRef } from 'react'
 
-const ConditionSelect = () => {
+interface ConditionSelectProps {
+    onSelect: (val: string) => void;
+}
+
+const ConditionSelect: React.FC<ConditionSelectProps> = ({onSelect}) => {
     const conditions = ["New","Used (Good Condition)","Used (Budget Option)","Any Available"]
     const [condition, setCondition] = React.useState("Select")
     const [show, setShow] = React.useState(false)
@@ -24,6 +28,7 @@ const ConditionSelect = () => {
     const handleSelect = (item:string) => {
         setCondition(item);
         setShow(false);
+        onSelect(item);
     }
 
     return (
