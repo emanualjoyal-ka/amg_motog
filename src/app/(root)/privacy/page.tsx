@@ -3,7 +3,7 @@ const page = () => {
   return (
     <div className='pt-20 bg-[#0C0B1D] md:pt-25 pb-8 px-3 md:px-16 min-h-screen'>
           <h1 className='text-3xl  md:text-4xl font-bold text-white'>Privacy Policy</h1>
-          <p>We value your privacy and are committed to protecting your personal information.</p>
+          <p className="text-white">We value your privacy and are committed to protecting your personal information.</p>
           <div className='border border-[#26345D] p-8 rounded-lg mt-5 text-white'>
           <div>
             <p className='font-bold'>Information we collect :</p>
