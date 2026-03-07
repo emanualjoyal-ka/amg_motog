@@ -11,6 +11,9 @@ const Form = () => {
         subject:"",
         message:""
       });
+
+  const emailValidate = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
     
       const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
