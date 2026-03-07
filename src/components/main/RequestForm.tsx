@@ -21,11 +21,15 @@ const RequestForm = () => {
     })
 
     const [nameError,setNameError]=React.useState(false);
-    const [phoneError,setPhoneError]=React.useState("");
-    const [brandError,setBrandError]=React.useState("");
-    const [modelError,setModelError]=React.useState("");
-    const [partError,setPartError]=React.useState("");
-    const [addressError,setAddressError]=React.useState("");
+    const [phoneError,setPhoneError]=React.useState(false);
+    const [brandError,setBrandError]=React.useState(false);
+    const [modelError,setModelError]=React.useState(false);
+    const [partError,setPartError]=React.useState(false);
+    const [addressError,setAddressError]=React.useState(false);
+
+    const [error,setError]=React.useState("")
+
+    const phoneNumber=/^\d{10}$/
     
     const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.files && e.target.files[0]) {
@@ -36,7 +40,13 @@ const RequestForm = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if(form.name===""){setNameError(true)}
-        // alert("Form Submitted");
+        if(form.phone==="" || !(phoneNumber.test(form.phone)) ){setPhoneError(true)}
+        if(form.brand===""){setBrandError(true)}
+        if(form.model===""){setModelError(true)}
+        if(form.part===""){setPartError(true)}
+        if(form.address===""){setAddressError(true)}
+        if(form.name==="" || form.phone==="" || form.brand==="" || form.model==="" || form.part==="" || form.address===""){setError("*Fill all required details.")}
+        
     }
 
 
@@ -51,12 +61,16 @@ const RequestForm = () => {
          </div>
         <div className='w-full'>
           <label htmlFor='number'>Phone Number</label>
-        <Input id='number' value={form.phone} onChange={(e) => {
+        <Input id='number' error={phoneError} value={form.phone} onChange={(e) => {
 
   const value = e.target.value.replace(/\D/g, ""); 
   if (value.length <= 10) {
     setForm({...form, phone: value});
   }
+
+  setPhoneError(false)
+
+  
 }} placeholder='XXXXX-XXXXX'/>
         </div>
         </div>
@@ -65,11 +79,11 @@ const RequestForm = () => {
         <div className='flex md:flex-row flex-col mt-5 items-center gap-5'>
          <div className='w-full'>
            <label htmlFor='brand'>Bike Brand</label>
-        <Input id='brand' value={form.brand} onChange={(e) => setForm({...form, brand: e.target.value})} placeholder='e.g. Yamaha, Honda...'/>
+        <Input id='brand'  error={brandError} value={form.brand} onChange={(e) => {setForm({...form, brand: e.target.value}),setBrandError(false)}} placeholder='e.g. Yamaha, Honda...'/>
          </div>
         <div className='w-full'>
           <label htmlFor='model'>Bike Model</label>
-        <Input id='model' value={form.model} onChange={(e) => setForm({...form, model: e.target.value})} placeholder="e.g. YZF-R6, CBR500R"/>
+        <Input id='model' error={modelError} value={form.model} onChange={(e) => {setForm({...form, model: e.target.value}),setModelError(false)}} placeholder="e.g. YZF-R6, CBR500R"/>
         </div>
         <div className='w-full'>
           <label htmlFor='year'>Year ( Optional )</label>
@@ -81,7 +95,7 @@ const RequestForm = () => {
          <div className='flex md:flex-row flex-col mt-5 items-center gap-5'>
          <div className='w-full'>
            <label htmlFor='part-name'>Part Name</label>
-        <Input id='part-name' value={form.part} onChange={(e) => setForm({...form, part: e.target.value})} placeholder='e.g. Brake Pads, Fuel Tank'/>
+        <Input id='part-name' error={partError} value={form.part} onChange={(e) => {setForm({...form, part: e.target.value}),setPartError(false)}} placeholder='e.g. Brake Pads, Fuel Tank'/>
          </div>
         <div className='w-full'>
           <label htmlFor='condition'>Condition Preference</label>
@@ -95,7 +109,7 @@ const RequestForm = () => {
 
         <div className='mt-5'>
           <label htmlFor='address'>City / Address</label>
-        <Input id='address' value={form.address} onChange={(e) => setForm({...form, address: e.target.value})} placeholder='Street, City, Zip Code'/>
+        <Input id='address' error={addressError} value={form.address} onChange={(e) =>{ setForm({...form, address: e.target.value}),setAddressError(false)}} placeholder='Street, City, Zip Code'/>
         </div>
 
         <div className='mt-5'>
@@ -107,7 +121,7 @@ const RequestForm = () => {
                       shadow-[inset_0_0_12px_rgba(191,151,255,0.24)]
                       hover:bg-[rgba(60,8,126,0.32)_100%)]
                       md:px-6 px-4 py-2 md:py-3 mt-4 font-bold transition-all duration-300 rounded-md text-white border-[1px] border-[#4D2F8C] cursor-pointer'>Request</button>
-
+          <p className='text-red-500 mt-2'>{error}</p>
 
       </form>
    </>

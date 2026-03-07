@@ -5,7 +5,7 @@ interface ConditionSelectProps {
 }
 
 const ConditionSelect: React.FC<ConditionSelectProps> = ({onSelect}) => {
-    const conditions = ["New","Used (Good Condition)","Used (Budget Option)","Any Available"]
+    const conditions = ["OEM ( Original )","Used","Any Available"]
     const [condition, setCondition] = React.useState("Select")
     const [show, setShow] = React.useState(false)
 
