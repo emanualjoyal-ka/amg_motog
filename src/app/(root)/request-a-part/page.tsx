@@ -3,7 +3,7 @@ import RequestForm from '@/src/components/main/RequestForm'
 
 const page = () => {
   return (
-    <div className='pt-15 md:pt-30 pb-8 md:pb-20 px-3 md:px-140 min-h-screen'>
+    <div className='pt-15 text-white bg-[#0C0B1D] md:pt-30 pb-8 md:pb-20 px-3 md:px-140 min-h-screen'>
       <div className='border-1 border-[#26345D] rounded-lg py-5 md:py-8 mt-5 px-3 md:px-5'>
 
         <div className='px-5'>
