@@ -32,3 +32,42 @@ body {
   html {
   scroll-behavior: smooth;
 }
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px; 
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #0C0B1D; 
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #26345D; 
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #364153; 
+}
+
+/* For Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #26345D #0C0B1D;
+}
+
+
+
+input[type="file"]::file-selector-button {
+  background-color: #0C0B1D;
+  color: white;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+input[type="file"]::file-selector-button:hover {
+  background-color: #26345D;
+}

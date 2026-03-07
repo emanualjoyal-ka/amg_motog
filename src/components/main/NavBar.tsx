@@ -1,7 +1,7 @@
 'use client'
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const NavBar = () => {
 
@@ -54,6 +54,24 @@ const NavBar = () => {
 
 
 
+       const mobileMenu=useRef<HTMLDivElement>(null);
+      
+          useEffect(() => {
+              const handleClickOutside = (event: MouseEvent) => {
+                  if (isMobileMenuOpen && mobileMenu.current && !mobileMenu.current.contains(event.target as Node)) {
+                      setIsMobileMenuOpen(false);
+                  }
+              };
+      
+              document.addEventListener("mousedown", handleClickOutside);
+              
+              return () => {
+                  document.removeEventListener("mousedown", handleClickOutside);
+              };
+          }, [isMobileMenuOpen]);
+
+
+
 
   return (
      <div className={`${isScrolled ? 'bg-[rgba(10,10,30,0.7)] backdrop-blur-md' : 'bg-transparent'} px-3 md:px-15 py-2 md:py-5 fixed w-full transition-all duration-200 top-0 left-0 z-50`}>
@@ -97,7 +115,7 @@ const NavBar = () => {
           </div>
 
 
-         <div className={`md:hidden absolute left-0 top-full w-full bg-[rgba(10,10,30,0.9)] backdrop-blur-md p-4 transition-all duration-300 ${
+         <div ref={mobileMenu} className={`md:hidden absolute left-0 top-full w-full bg-[rgba(10,10,30,0.9)] backdrop-blur-md p-4 transition-all duration-300 ${
   isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-2 pointer-events-none"
 }`}>
             {menuItems.map((item,index)=>(
