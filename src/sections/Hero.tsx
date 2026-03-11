@@ -17,10 +17,10 @@ const Hero = () => {
                       shadow-lg shadow-[rgba(60,8,126,0.8)]
                       bg-[rgba(60,8,126,0.5)_100%)]
                       md:px-6 px-4 py-2 md:py-3 mt-4 font-bold transition-all duration-300 rounded-full text-white border-[1px] border-[#4D2F8C] cursor-pointer'>Request a Part Now</button>
-        <button onClick={()=>router.push('/shop')} className='w-full hover:bg-[linear-gradient(to_right,rgba(60,8,126)_0%,rgba(60,8,126,0.32)_100%)]
+        <a href="#how-it-works"  className='w-full hover:bg-[linear-gradient(to_right,rgba(60,8,126)_0%,rgba(60,8,126,0.32)_100%)]
                       shadow-lg shadow-[rgba(60,8,126,0.8)]
-                      bg-[rgba(60,8,126,0.5)_100%)]
-                      md:px-6 px-4 py-2 md:py-3 mt-4 font-bold transition-all duration-300 rounded-full text-white border-[1px] border-[#4D2F8C] cursor-pointer'>How it works</button>
+                      bg-[rgba(60,8,126,0.5)_100%)] text-center
+                      md:px-6 px-4 py-2 md:py-3 mt-4 font-bold transition-all duration-300 rounded-full text-white border-[1px] border-[#4D2F8C] cursor-pointer'>How it works</a>
 </div>
         </div>
         <WhyChooseUs/>

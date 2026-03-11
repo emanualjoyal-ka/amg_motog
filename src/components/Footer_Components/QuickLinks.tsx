@@ -12,7 +12,7 @@ const QuickLinks = () => {
     },
     {
       name:'How it works',
-      path:'/how-it-works'
+      path:'/#how-it-works'
     },
     {
       name:'Track Order',
