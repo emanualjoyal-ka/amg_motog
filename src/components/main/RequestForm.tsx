@@ -26,6 +26,7 @@ const RequestForm = () => {
     const [modelError,setModelError]=React.useState(false);
     const [partError,setPartError]=React.useState(false);
     const [addressError,setAddressError]=React.useState(false);
+    const [conditionError,setConditionError]=React.useState(false);
 
     const [error,setError]=React.useState("")
 
@@ -39,14 +40,31 @@ const RequestForm = () => {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if(form.name===""){setNameError(true)}
-        if(form.phone==="" || !(phoneNumber.test(form.phone)) ){setPhoneError(true)}
-        if(form.brand===""){setBrandError(true)}
-        if(form.model===""){setModelError(true)}
-        if(form.part===""){setPartError(true)}
-        if(form.address===""){setAddressError(true)}
-        if(form.name==="" || form.phone==="" || form.brand==="" || form.model==="" || form.part==="" || form.address===""){setError("*Fill all required details.")}
+        setError("");
+        if(form.name===""){setNameError(true);}
+        if(form.phone==="" || !(phoneNumber.test(form.phone)) ){setPhoneError(true);}
+        if(form.brand===""){setBrandError(true);}
+        if(form.model===""){setModelError(true);}
+        if(form.part===""){setPartError(true);}
+        if(form.address===""){setAddressError(true);}
+        if(form.condition==="" || form.condition==="Select"){setConditionError(true);}
+        if(form.name==="" || form.phone==="" || form.brand==="" || form.model==="" || form.part==="" || form.address==="" || form.condition==="" || form.condition==="Select"){setError("*Fill all required details.");return;}
         
+       console.log(form);
+        alert("Message sent successfully!");
+        setForm({
+           name:"",
+        phone:"",
+        brand:"",
+        model:"",
+        part:"",
+        year: "",
+        condition: "", 
+        address:"",
+        description:"",
+        image: null as File | null
+        });
+
     }
 
 
@@ -99,7 +117,7 @@ const RequestForm = () => {
          </div>
         <div className='w-full'>
           <label htmlFor='condition'>Condition Preference</label>
-          <ConditionSelect onSelect={(val) => setForm({...form, condition: val})}/>
+          <ConditionSelect error={conditionError} onSelect={(val) => {setForm({...form, condition: val}),setConditionError(false)}}/>
         </div>
         <div className='w-full'>
           <label htmlFor='image'>Upload Photo ( Optional )</label>

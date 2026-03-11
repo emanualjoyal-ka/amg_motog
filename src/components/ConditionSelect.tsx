@@ -2,9 +2,10 @@ import React, { useEffect, useRef } from 'react'
 
 interface ConditionSelectProps {
     onSelect: (val: string) => void;
+    error?: boolean;
 }
 
-const ConditionSelect: React.FC<ConditionSelectProps> = ({onSelect}) => {
+const ConditionSelect: React.FC<ConditionSelectProps> = ({onSelect,error}) => {
     const conditions = ["OEM ( Original )","Used","Any Available"]
     const [condition, setCondition] = React.useState("Select")
     const [show, setShow] = React.useState(false)
@@ -36,7 +37,7 @@ const ConditionSelect: React.FC<ConditionSelectProps> = ({onSelect}) => {
             <button 
                 type='button' 
                 onClick={() => setShow(!show)}  
-                className='w-full p-2 flex items-center justify-between rounded-md border border-[#26345D] bg-[#0C0B1D] text-white'
+                className={`w-full p-2 flex items-center justify-between rounded-md border  bg-[#0C0B1D] text-white transition-all duration-300 ${error ? "border-red-800" : "border-[#26345D]"}`}
             >
                 <p>{condition}</p>
                 <div className={`w-4 transition-transform duration-300 ${show ? "rotate-180" : ""}`}>
