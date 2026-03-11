@@ -1,28 +1,39 @@
-import Link from "next/link";
+'use client'
+
+import { useRouter } from "next/navigation";
+
 
 const GuideLines = () => {
+
+  const router=useRouter();
+
   const guideLines = [
     {
       name:"Guidelines",
-      path:"/guidelines"
+      id:"guide-lines"
     },
     {
       name: "Terms and Conditions",
-      path: "/terms-conditions",
+      id: "terms-conditions",
     },
     {
       name: "Privacy Policy",
-      path: "/privacy",
+      id: "privacy",
     },
     {
       name: "Refund & Cancellation",
-      path: "/refund-cancellation",
+      id: "refund-cancellation",
     },
     {
       name: "Shipping Policy",
-      path: "/shipping",
+      id: "shipping",
     },
   ];
+
+
+const navigate = (id: string) => {
+    router.push(`/guidelines#${id}`);
+  };
 
   return (
     <>
@@ -30,12 +41,13 @@ const GuideLines = () => {
         <div>
           <ul className="text-white/50 space-y-1 md:space-y-2 mt-2">
             {guideLines.map((item, index) => (
-              <li
-                key={index}
-                className="hover:text-white transition-hover duration-300"
-              >
-                <Link href={item.path}>{item.name}</Link>
-              </li>
+               <li
+            key={index}
+            className="hover:text-white transition-hover duration-300 cursor-pointer"
+            onClick={() => navigate(item.id)}
+          >
+            {item.name}
+          </li>
             ))}
           </ul>
         </div>
