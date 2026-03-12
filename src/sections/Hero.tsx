@@ -12,6 +12,19 @@ const Hero = () => {
     <div className='min-h-screen relative pt-25 px-5 md:px-16 bg-[radial-gradient(circle_at_top,rgba(77,47,140,0.35),transparent_50%)] '>
       
            <div className='md:pt-20'>
+            <ShinyText
+  text="Reliable Bike Parts for Everyday Riders"
+  speed={4}
+  delay={0}
+  color="#b5b5b5"
+  shineColor="#ffffff"
+  spread={120}
+  direction="left"
+  yoyo={false}
+  pauseOnHover={false}
+  disabled={false}
+  className='text-3xl text-center md:text-left md:w-140 md:text-6xl font-bold text-white'
+/>
 
             
         <h2 className='md:text-xl md:text-xl text-white mt-2'>Quality bike parts tested in real workshops,</h2>
