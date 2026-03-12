@@ -13,7 +13,7 @@ export const guideline =[
     {
         id:3,
         title:"Advance Payment",
-        desc:"An advance payment may be required to confirm the order before sourcing or shipping the part."
+        desc:"A 30 - 40% advance payment may be required for order confirmation, especially for rare or sourced parts."
     },
     {
         id:4,

@@ -1,4 +1,3 @@
-import React from 'react'
 
 const SocialMedias = () => {
   return (
@@ -6,7 +5,7 @@ const SocialMedias = () => {
      <div className='absolute right-[5%] top-[60%] '>
         <div className="flex flex-col gap-5">
           <div className="h-12 w-12 md:h-15 md:w-15 bg-[#0766FF] flex justify-center items-center rounded-full hover:scale-110 transition-hover duration-300 cursor-pointer">
-            <div className="w-6 md:w-8 mr-0.5 text-white">
+            <a href="https://www.facebook.com/profile.php?id=61582431266023" className="w-6 md:w-8 mr-0.5 text-white">
               <svg
                 fill="currentcolor"
                 className="w-full h-full"
@@ -18,7 +17,7 @@ const SocialMedias = () => {
                   fillRule="evenodd"
                 />
               </svg>
-            </div>
+            </a>
           </div>
           <div className="h-12 w-12 md:h-15 md:w-15 bg-green-500 flex items-center justify-center rounded-full hover:scale-110 transition-hover duration-300 cursor-pointer">
             <div className="w-6 md:w-9 text-white">

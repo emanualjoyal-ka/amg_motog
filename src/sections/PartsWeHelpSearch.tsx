@@ -9,8 +9,8 @@ const PartsWeHelpSearch = () => {
             <h1 className='text-center font-bold text-3xl md:text-4xl'>Parts We Help Source</h1>
         <div className='grid md:grid-cols-3 gap-x-6 gap-y-5 md:gap-y-10 mt-10 md:mt-20'>
             {part.map((item,index)=>(
-            <div key={index} className='border border-[#26345D] rounded-lg pt-8 pb-10 flex flex-col items-center'>
-                <div className='w-20 text-[#26345D]'>
+            <div key={index} className='border border-[#26345D] rounded-lg py-6 md:pt-8 md:pb-10 flex flex-col items-center'>
+                <div className='w-20 text-[#4D2F8C59] '>
                     {item.icon}
                 </div>
                 <p className='mt-5 font-bold text-2xl'>{item.name}</p>

@@ -12,11 +12,10 @@ Built with the latest React and Next.js features, styled using Tailwind CSS, and
 - **Request a part** form supporting text input, photo uploads, and screenshots.
 - **Track order** page to view the status of previously submitted requests.
 - **Informational pages**: About Us, Contact, and GDPR/Terms guidelines.
-- **Admin portal** with login and password recovery (stubbed routes). 
+- **Admin portal** with login and password recovery (stubbed routes).
 - Client‑side data fetching with **React Query** and **Axios**.
 - Fully responsive design using **Tailwind CSS**.
 - API base URL configurable via environment variables.
-
 
 ## 📁 Project Structure
 
@@ -75,12 +74,12 @@ npm run dev
 
 ### Available Scripts
 
-| Command       | Description                       |
-|---------------|-----------------------------------|
-| `npm run dev` | Start development server          |
-| `npm run build` | Build for production            |
-| `npm run start` | Run the production build         |
-| `npm run lint` | Run ESLint                       |
+| Command         | Description              |
+| --------------- | ------------------------ |
+| `npm run dev`   | Start development server |
+| `npm run build` | Build for production     |
+| `npm run start` | Run the production build |
+| `npm run lint`  | Run ESLint               |
 
 ## 📝 Environment Variables
 
