@@ -14,7 +14,7 @@ const Hero = () => {
            <div className='md:pt-20'>
             <ShinyText
   text="Reliable Bike Parts for Everyday Riders"
-  speed={4}
+  speed={3}
   delay={0}
   color="#b5b5b5"
   shineColor="#ffffff"
@@ -27,8 +27,8 @@ const Hero = () => {
 />
 
             
-        <h2 className='md:text-xl md:text-xl text-white mt-2'>Quality bike parts tested in real workshops,</h2>
-        <h2 className='md:text-xl md:text-xl text-white '> Reliable performance at honest prices.</h2>
+        <h2 className='md:text-xl  text-white mt-2'>Quality bike parts tested in real workshops,</h2>
+        <h2 className='md:text-xl text-white '> Reliable performance at honest prices.</h2>
 <div className="md:flex gap-4 max-w-120 ">
 
 
