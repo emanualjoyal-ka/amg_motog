@@ -97,7 +97,7 @@ const NavBar = () => {
             <button onClick={()=>router.push("/contact")} className='hidden md:block bg-[linear-gradient(to_right,rgba(60,8,126,0)_0%,rgba(60,8,126,0.32)_100%)]
                       shadow-[inset_0_0_12px_rgba(191,151,255,0.24)]
                       hover:bg-[rgba(60,8,126,0.32)_100%)] font-bold
-                      px-4 py-2 rounded-full text-white border-[1px] transition-hover duration-300 border-[#4D2F8C] cursor-pointer'>
+                      px-4 py-3 rounded-lg text-white border-[1px] transition-hover duration-300 border-[#4D2F8C] cursor-pointer'>
               Contact
             </button>
 

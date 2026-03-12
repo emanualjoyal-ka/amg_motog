@@ -59,7 +59,7 @@ const WhyChooseUs = () => {
                     {item.icon}
                   
                 </div>
-                <h3 className='font-bold md:font-medium text-white md:text-xl'>{item.title}</h3>
+                <h3 className=' md:font-medium text-white md:text-xl'>{item.title}</h3>
               </div>
             ))
           }
