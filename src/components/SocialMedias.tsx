@@ -2,7 +2,7 @@
 const SocialMedias = () => {
   return (
     <>
-     <div className='absolute right-[5%] top-[60%] '>
+     <div className='absolute right-[5%] bottom-10'>
         <div className="flex flex-col gap-5">
           <div className="h-12 w-12 md:h-15 md:w-15 bg-[#0766FF] flex justify-center items-center rounded-full hover:scale-110 transition-hover duration-300 cursor-pointer">
             <a href="https://www.facebook.com/profile.php?id=61582431266023" className="w-6 md:w-8 mr-0.5 text-white">

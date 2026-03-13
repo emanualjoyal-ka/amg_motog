@@ -50,7 +50,7 @@ const WhyChooseUs = () => {
 
   return (
     <>
-    <div className="mt-10">
+    <div className="mt-5 md:mt-15">
           {
             ChooseUS.map((item,index)=>(
               <div key={index} className='flex items-center gap-2 md:gap-4 mt-5'>

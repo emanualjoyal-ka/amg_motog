@@ -14,7 +14,7 @@ const Hero = () => {
            <div className='md:pt-20'>
             <ShinyText
   text="Reliable Bike Parts for Everyday Riders"
-  speed={3}
+  speed={2}
   delay={0}
   color="#b5b5b5"
   shineColor="#ffffff"
@@ -23,7 +23,7 @@ const Hero = () => {
   yoyo={false}
   pauseOnHover={false}
   disabled={false}
-  className='text-3xl text-center md:text-left md:w-140 md:text-6xl font-bold text-white'
+  className='text-4xl text-center md:text-left md:w-140 md:text-6xl font-bold text-white'
 />
 
             
@@ -37,7 +37,7 @@ const Hero = () => {
            <button onClick={()=>router.push('/request-a-part')} className=' relative w-full hover:bg-[linear-gradient(to_right,rgba(60,8,126)_0%,rgba(60,8,126,0.32)_100%)]
                       md:px-6 px-4 py-3 mt-4 font-bold  rounded-lg text-white border-[1px] border-[#4D2F8C] cursor-pointer'>
             Request Part Now
-          <div className='absolute rounded-lg -z-1 animate-pulse shadow-[0_0_30px_rgba(60,8,126,0.8)] bg-[#0C0B1D] inset-0 '>
+          <div className='absolute rounded-lg -z-1 animate-pulse shadow-[0_0_10px_10px_rgba(60,8,126,0.8)] bg-[#0C0B1D] inset-0 '>
 
           </div>
          
@@ -48,15 +48,16 @@ const Hero = () => {
 
 
             <a href="#how-it-works" className='w-full'> 
-            <button  className='w-full bg-[linear-gradient(to_right,rgba(60,8,126)_0%,rgba(60,8,126,0.32)_100%)]
-                      hover:bg-[rgba(60,8,126,0.5)_100%)] text-center
+            <button  className='w-full bg-[linear-gradient(to_right,rgba(60,8,126,0)_0%,rgba(60,8,126,0.32)_100%)]
+                      shadow-[inset_0_0_12px_rgba(191,151,255,0.24)]
+                      hover:bg-[rgba(60,8,126,0.32)_100%)] text-center
                       md:px-6 px-4 py-3 mt-4 font-bold transition-all duration-300 rounded-lg text-white border-[1px] border-[#4D2F8C] cursor-pointer'>
             How it works
             </button></a>
 </div>
         </div>
         <WhyChooseUs/>
-        <SocialMedias/>
+        {/* <SocialMedias/> */}
     </div>
   )
 }

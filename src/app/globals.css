@@ -172,3 +172,47 @@ input[type="file"]::file-selector-button:hover {
     @apply font-sans;
   }
 }
+
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.metallic-border {
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.metallic-border::before {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  left: -50%;
+  top: -50%;
+  width: 200%;
+  height: 200%;
+  /* Metallic Purple Gradient Sweep */
+  background: conic-gradient(
+    transparent, 
+    #4D2F8C, 
+    #B39DDB, 
+    #4D2F8C, 
+    transparent 30%
+  );
+  animation: rotate 10s linear infinite;
+}
+
+.metallic-border::after {
+  content: '';
+  position: absolute;
+  z-index: -1;
+  /* Adjust this value (1px or 2px) to control border thickness */
+  left: 1px;
+  top: 1px;
+  width: calc(100% - 2px);
+  height: calc(100% - 2px);
+  background: #0C0B1D; /* Matches your section background */
+  border-radius: 7px; /* Matches rounded-lg */
+}
