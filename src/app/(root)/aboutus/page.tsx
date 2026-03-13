@@ -2,7 +2,7 @@ import React from 'react'
 
 const page = () => {
   return (
-    <div className='pt-25 px-16 text-white bg-[#0C0B1D] min-h-screen'>
+    <div className='pt-25 px-16 text-white bg-[#0C0B1D] min-h-screen bg-[radial-gradient(circle_at_top,rgba(77,47,140,0.35),transparent_50%)]'>
       We are a small mechanic-driven spare parts sourcing service based in Kochi.
 
 Our goal is simple — help riders find affordable and genuine motorcycle parts without the hassle of searching across multiple garages.
