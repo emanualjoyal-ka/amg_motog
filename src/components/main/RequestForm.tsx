@@ -72,7 +72,7 @@ const RequestForm = () => {
    <>
    <form onSubmit={handleSubmit} className='mt-5'>
         
-        <div className='flex md:flex-row flex-col items-center gap-5'>
+        <div className='flex md:flex-row flex-col items-center gap-5 '>
          <div className='w-full'>
            <label htmlFor='name'>Full Name</label>
         <Input id='name' error={nameError}  value={form.name} placeholder='e.g. John Doe' onChange={(e) =>{setForm({...form, name: e.target.value}),setNameError(false)}}/>
@@ -139,7 +139,7 @@ const RequestForm = () => {
                       shadow-[inset_0_0_12px_rgba(191,151,255,0.24)]
                       hover:bg-[rgba(60,8,126,0.32)_100%)]
                       md:px-6 px-4 py-2 md:py-3 mt-4 font-bold transition-all duration-300 rounded-md text-white border-[1px] border-[#4D2F8C] cursor-pointer'>Request</button>
-          <p className='text-red-500 mt-2'>{error}</p>
+          <p className={`text-red-500 mt-2 transisiton duration-300 ${error ? "opacity-100 translate-y-0" :"opacity-0 -translate-y-3"}`}>{error}</p>
 
       </form>
    </>

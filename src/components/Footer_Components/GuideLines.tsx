@@ -39,7 +39,7 @@ const navigate = (id: string) => {
     <>
       <div>
         <div>
-          <ul className="text-white/50 space-y-1 md:space-y-2 mt-2">
+          <ul className="text-white/50 select-none space-y-1 md:space-y-2 mt-2">
             {guideLines.map((item, index) => (
                <li
             key={index}

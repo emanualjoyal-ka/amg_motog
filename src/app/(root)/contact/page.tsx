@@ -5,7 +5,7 @@ import Form from "@/src/components/main/ContactForm";
 const page = () => {
   return (
     <div className='pt-25 bg-[radial-gradient(circle_at_top,rgba(77,47,140,0.35),transparent_50%)] bg-[#0C0B1D] px-3 pb-8 overflow-hidden min-h-screen flex items-center justify-center'>
-      <div className='grid relative md:grid-cols-3 gap-5'>
+      <div className='grid relative lg:grid-cols-3 gap-5'>
         {/* <div className='absolute m-auto rounded-full bg-[#16072D] h-150 w-200 inset-0 blur-3xl'/> */}
         <Form/>
         <div className='md:col-span-1'>
