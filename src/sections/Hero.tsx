@@ -1,6 +1,5 @@
 'use client';
 import WhyChooseUs from '../components/WhyChooseUs'
-import SocialMedias from '../components/SocialMedias'
 import { useRouter } from 'next/navigation';
 import ShinyText from "../../components/ShinyText"
 
@@ -23,12 +22,12 @@ const Hero = () => {
   yoyo={false}
   pauseOnHover={false}
   disabled={false}
-  className='text-4xl text-center lg:text-left lg:w-140 md:text-6xl font-bold text-white'
+  className='text-4xl cursor-default drop-shadow-[0_2px_1px_rgba(255,255,255,0.6)] text-center lg:text-left lg:w-140 md:text-6xl font-bold text-white'
 />
 
             
-        <h2 className='md:text-xl text-center lg:text-left text-white mt-2'>Quality bike parts tested in real workshops,</h2>
-        <h2 className='md:text-xl text-center lg:text-left text-white '> Reliable performance at honest prices.</h2>
+        <h2 className='md:text-xl text-center cursor-default lg:text-left text-white mt-2'>Quality bike parts tested in real workshops,</h2>
+        <h2 className='md:text-xl text-center cursor-default lg:text-left text-white '> Reliable performance at honest prices.</h2>
 
 <div className="flex flex-col lg:flex-row gap-5 mt-4 w-[90%] lg:w-full">
            <button onClick={()=>router.push('/request-a-part')} className=' relative w-full hover:bg-[linear-gradient(to_right,rgba(60,8,126)_0%,rgba(60,8,126,0.32)_100%)]
@@ -52,9 +51,8 @@ const Hero = () => {
 
         <WhyChooseUs/>
         </div>
-        {/* <SocialMedias/> */}
 
-        <div className='flex items-center mb-5 md:mb-0 justify-center'>
+        <div className='flex items-center mb-5 md:mb-0 animate-float drop-shadow-[0_20px_25px_rgba(0,0,0,0.5)] justify-center'>
           <img src="/bgnew.png" alt="Image of Motorcycle Parts" />
         </div>
 

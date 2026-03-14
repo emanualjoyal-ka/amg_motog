@@ -4,7 +4,7 @@ const ContactInfo = () => {
 
   return (
     <>
-    <div className="border-[#26345D] border bg-[#303030]/20  backdrop-blur-md p-5 md:p-8 rounded-lg">
+    <div className="border-[#26345D] cursor-default border bg-[#303030]/20  backdrop-blur-md p-5 md:p-8 rounded-lg">
             <p className="text-xl md:text-2xl md:text-left text-center text-white">Contact Information</p>
             {contactDetails.map((item)=>(
                 <div key={item.id} className="flex items-center gap-3 mt-5">
