@@ -2,7 +2,7 @@
 const Contacts = () => {
   return (
     <>
-      <div>
+      <div className="cursor-default">
         <p className="font-bold text-white">Contact</p>
         <div className="space-y-2 md:space-y-3 mt-2 md:mt-4 text-white/50 ">
           <div className="flex gap-1 items-center">

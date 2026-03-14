@@ -76,7 +76,7 @@ const NavBar = () => {
   return (
      <div className={`${isScrolled ? 'bg-[rgba(10,10,30,0.7)] backdrop-blur-md' : 'bg-transparent'} px-5 lg:px-15 py-2 md:py-5 fixed w-full transition-all duration-200 top-0 left-0 z-50`}>
           <div className='flex justify-between items-center'>
-            <h1 className="text-3xl md:text-4xl  font-bold text-white font-audiowide">AMG</h1>
+            <h1 className="text-3xl md:text-4xl  font-bold text-white cursor-default font-audiowide">AMG</h1>
           <ul className="hidden lg:flex gap-2 border-2 border-white/10 bg-blue/80 shadow-2xl backdrop-blur-md p-1 rounded-full">
             {menuItems.map((item,index)=>(
               <Link
@@ -122,14 +122,14 @@ const NavBar = () => {
               <Link
                 key={index}
                 href={item.path}
-                className={`block py-2 px-4 rounded-full text-white hover:bg-white/20 ${pathname === item.path ? "bg-white/20" : ""}`}
+                className={`block py-2 px-4 rounded-lg text-white hover:bg-white/20 ${pathname === item.path ? "bg-[#211641]/90" : ""}`}
               >
               {item.name}
               </Link>
             ))
             }
             <Link href="/contact" 
-                className={`block py-2 px-4 rounded-full text-white hover:bg-white/20 ${pathname === "/contact" ? "bg-white/20" : ""}`}
+                className={`block py-2 px-4 rounded-lg text-white hover:bg-white/20 ${pathname === "/contact" ? "bg-[#211641]/90" : ""}`}
             >
               Contact
             </Link>

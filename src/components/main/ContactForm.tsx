@@ -42,8 +42,8 @@ const Form = () => {
   return (
     <>
       <form onSubmit={handleSubmit} className='border-[#26345D] border bg-[#303030]/20  backdrop-blur-md md:col-span-2  shadow-lg  p-5 md:p-8 rounded-lg'>
-          <h1 className='text-2xl md:text-left text-center md:text-3xl text-white'>Send us a message</h1>
-          <h1 className='text-white pt-2'>Fill out the form below and we'll respond as soon as possible.</h1>
+          <h1 className='text-2xl md:text-left text-center md:text-3xl text-white cursor-default'>Send us a message</h1>
+          <h1 className='text-white pt-2 cursor-default'>Fill out the form below and we'll respond as soon as possible.</h1>
           <label htmlFor='name' className='text-white block pt-5'>Name</label>
           <Input error={nameErr} placeholder='John Doe' id='name' value={formData.name} onChange={(e) => {setFormData({...formData, name: e.target.value});setNameErr(false);}}/>
           <label htmlFor='email' className='text-white block pt-5'>Email</label>

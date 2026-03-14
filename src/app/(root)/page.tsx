@@ -1,3 +1,4 @@
+import Brands from "@/src/sections/Brands"
 import CallToAction from "@/src/sections/CallToAction"
 import Hero from "@/src/sections/Hero"
 import HowItWorks from "@/src/sections/HowItWorks"
@@ -9,7 +10,8 @@ const page = () => {
     <div>
      <Hero/>
      <PartsWeHelpSearch/>
-     {/* <HowItWorks/> */}
+     <HowItWorks/>
+     <Brands/>
      <CallToAction/>
     </div>
   )
