@@ -5,7 +5,7 @@ const FollowUs = () => {
     <>
       <div>
         <p className="font-bold text-white cursor-default">Follow Us</p>
-        <div className="flex gap-5 mt-2 md:mt-4">
+        <div className="flex gap-5 mt-5 md:mt-4">
           <div className="h-12 w-12 bg-[#1E2939] flex justify-center items-center rounded-full hover:bg-[#272080] transition-hover duration-300 cursor-pointer">
             <a href="https://www.facebook.com/profile.php?id=61582431266023" className="w-7 mr-0.5 text-white">
               <svg
