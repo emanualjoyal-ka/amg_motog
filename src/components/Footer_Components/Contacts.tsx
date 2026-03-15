@@ -6,7 +6,7 @@ const Contacts = () => {
         <p className="font-bold text-white">Contact</p>
         <div className="space-y-2 md:space-y-3 mt-2 md:mt-4 text-white/50 ">
           <div className="flex gap-1 items-center">
-            <div className="w-5 md:w-6 ">
+            <div className="hidden md:block w-5 md:w-6 ">
               <svg
                 className="h-full w-full"
                 viewBox="0 0 24 24"
@@ -36,7 +36,7 @@ const Contacts = () => {
             <p>{process.env.NEXT_PUBLIC_EMAIL}</p>
           </div>
           <div className="flex gap-1 items-center">
-            <div className="w-5 md:w-6 ">
+            <div className="hidden md:block w-5 md:w-6 ">
               <svg
                 className="w-full h-full"
                 viewBox="0 0 24 24"
@@ -54,7 +54,7 @@ const Contacts = () => {
             <p>{process.env.NEXT_PUBLIC_PHONE}</p>
           </div>
           <div className="flex gap-1 items-center">
-            <div className="w-5 md:w-6 ">
+            <div className="hidden md:block w-5 md:w-6 ">
               <svg
                 className="w-full h-full"
                 viewBox="0 0 24 24"

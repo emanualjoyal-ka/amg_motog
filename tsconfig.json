@@ -29,6 +29,6 @@
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
-, "src/constants/parts.js", "src/constants/contactInfo.js"  ],
+, "src/constants/parts.tsx", "src/constants/contactInfo.tsx"  ],
   "exclude": ["node_modules"]
 }
