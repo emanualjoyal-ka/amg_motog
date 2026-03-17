@@ -13,7 +13,7 @@ const Brands = () => {
         We help locate spare parts for many popular motorcycles.
       </p>
 
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-10 place-items-center mb-12">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-10 place-items-center mb-12">
         {brands.map((item, index) => (
           <div
             key={index}

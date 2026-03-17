@@ -2,15 +2,19 @@ import React, { useEffect, useRef } from 'react'
 
 interface ConditionSelectProps {
     onSelect: (val: string) => void;
-    error?: boolean;
 }
 
-const ConditionSelect: React.FC<ConditionSelectProps> = ({onSelect,error}) => {
+const ConditionSelect: React.FC<ConditionSelectProps> = ({onSelect}) => {
     const conditions = ["OEM ( Original )","Used","Any Available"]
-    const [condition, setCondition] = React.useState("Select")
+    const [condition, setCondition] = React.useState("Any Available")
     const [show, setShow] = React.useState(false)
 
     const dropdownRef=useRef<HTMLDivElement>(null);
+
+
+    useEffect(() => {
+  onSelect("Any Available");
+}, []);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -37,7 +41,7 @@ const ConditionSelect: React.FC<ConditionSelectProps> = ({onSelect,error}) => {
             <button 
                 type='button' 
                 onClick={() => setShow(!show)}  
-                className={`w-full p-2 flex items-center justify-between rounded-md border  bg-[#0C0B1D] text-white transition-all duration-300 ${error ? "border-red-800" : "border-[#26345D]"}`}
+                className={`w-full p-2 flex items-center justify-between rounded-md border  bg-[#0C0B1D] text-white transition-all duration-300 border-[#26345D]`}
             >
                 <p>{condition}</p>
                 <div className={`w-4 transition-transform duration-300 ${show ? "rotate-180" : ""}`}>

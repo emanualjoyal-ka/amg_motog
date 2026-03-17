@@ -1,5 +1,5 @@
 import CallToAction from '@/src/sections/CallToAction'
-import React from 'react'
+
 
 const page = () => {
   return (

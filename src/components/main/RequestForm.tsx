@@ -4,8 +4,15 @@ import Input from '../Input'
 import TextArea from '../TextArea'
 import YearSelection from '../YearSelection'
 import ConditionSelect from '../ConditionSelect'
+import { useCreateRequest } from '@/src/controllers/requestController'
 
-const RequestForm = () => {
+interface Props {
+  onSuccess?: () => void;
+}
+
+const RequestForm : React.FC<Props> = ({onSuccess}) => {
+
+  const {mutate,isPending}=useCreateRequest();
 
     const [form,setForm]=React.useState({
         name:"",
@@ -14,7 +21,7 @@ const RequestForm = () => {
         model:"",
         part:"",
         year: "",
-        condition: "", 
+        condition: "Any Available", 
         address:"",
         description:"",
         image: null as File | null
@@ -26,9 +33,9 @@ const RequestForm = () => {
     const [modelError,setModelError]=React.useState(false);
     const [partError,setPartError]=React.useState(false);
     const [addressError,setAddressError]=React.useState(false);
-    const [conditionError,setConditionError]=React.useState(false);
 
     const [error,setError]=React.useState("")
+
 
     const phoneNumber=/^\d{10}$/
     
@@ -47,30 +54,63 @@ const RequestForm = () => {
         if(form.model===""){setModelError(true);}
         if(form.part===""){setPartError(true);}
         if(form.address===""){setAddressError(true);}
-        if(form.condition==="" || form.condition==="Select"){setConditionError(true);}
-        if(form.name==="" || form.phone==="" || form.brand==="" || form.model==="" || form.part==="" || form.address==="" || form.condition==="" || form.condition==="Select"){setError("*Fill all required details.");return;}
+        if(form.name==="" || form.phone==="" || form.brand==="" || form.model==="" || form.part==="" || form.address===""){setError("*Fill all required details.");return;}
         
        console.log(form);
-        alert("Message sent successfully!");
-        setForm({
+        
+      const formData=new FormData();
+
+      formData.append("fullName", form.name);
+formData.append("phone", form.phone);
+formData.append("bikeBrand", form.brand);
+formData.append("bikeModel", form.model);
+formData.append("partName", form.part);
+formData.append("condition", form.condition);
+formData.append("address", form.address);
+formData.append("description", form.description);
+
+    if (form.year) {
+  formData.append("year", form.year);
+}
+
+if (form.image) {
+  formData.append("image", form.image as File);
+}
+
+    mutate(formData,{
+      onSuccess:()=>{
+        console.log("Request sent successfully");
+
+
+
+         setForm({
            name:"",
         phone:"",
         brand:"",
         model:"",
         part:"",
         year: "",
-        condition: "", 
+        condition: "Any Available", 
         address:"",
         description:"",
         image: null as File | null
         });
 
+        onSuccess?.();
+        
+      },
+
+      onError:()=>{
+        console.log("Failed to sent request");
+        
+      }
+    })
     }
 
 
   return (
    <>
-   <form onSubmit={handleSubmit} className='mt-5'>
+   <form onSubmit={handleSubmit} className='mt-5 relative'>
         
         <div className='flex md:flex-row flex-col items-center gap-5 '>
          <div className='w-full'>
@@ -117,7 +157,7 @@ const RequestForm = () => {
          </div>
         <div className='w-full'>
           <label htmlFor='condition'>Condition Preference</label>
-          <ConditionSelect error={conditionError} onSelect={(val) => {setForm({...form, condition: val}),setConditionError(false)}}/>
+          <ConditionSelect onSelect={(val) => {setForm({...form, condition: val})}}/>
         </div>
         <div className='w-full'>
           <label htmlFor='image'>Upload Photo ( Optional )</label>
@@ -135,11 +175,13 @@ const RequestForm = () => {
         <TextArea id='description' value={form.description} onChange={(e) => setForm({...form, description: e.target.value})} placeholder='Details about the part, damage, or specific requirements...'/>
         </div>
 
-            <button type='submit' className='bg-[linear-gradient(to_right,rgba(60,8,126,0)_0%,rgba(60,8,126,0.32)_100%)]
+            <button type='submit' disabled={isPending} className='bg-[linear-gradient(to_right,rgba(60,8,126,0)_0%,rgba(60,8,126,0.32)_100%)]
                       shadow-[inset_0_0_12px_rgba(191,151,255,0.24)]
                       hover:bg-[rgba(60,8,126,0.32)_100%)]
-                      md:px-6 px-4 py-2 md:py-3 mt-4 font-bold transition-all duration-300 rounded-md text-white border-[1px] border-[#4D2F8C] cursor-pointer'>Request</button>
+                      md:px-6 px-4 py-2 md:py-3 mt-4 font-bold transition-all duration-300 rounded-md text-white border-[1px] border-[#4D2F8C] w-full md:w-40 h-13 flex items-center justify-center cursor-pointer'>{isPending ? (<div className='border-b-5 border-t-2 border-l-2 border-r-2 border-purple-500 h-9 w-9 rounded-full animate-spin drop-shadow-sm drop-shadow-purple-500'/>) : "Request"}</button>
           <p className={`text-red-500 mt-2 transisiton duration-300 ${error ? "opacity-100 translate-y-0" :"opacity-0 -translate-y-3"}`}>{error}</p>
+
+
 
       </form>
    </>
