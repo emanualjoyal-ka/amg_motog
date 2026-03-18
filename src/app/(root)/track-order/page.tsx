@@ -1,22 +1,45 @@
 'use client'
 import OrderNotFoundMsg from '@/src/components/OrderNotFoundMsg'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {steps} from "../../../constants/trackingProgress";
+import { useGetTracker } from '@/src/controllers/requestController';
 
 const page = () => {
 
   const [search,setSearch]=useState("")
+  const [orderId, setOrderId] = useState("")  //here
+  const [isSearching, setIsSearching] = useState(false)  //here
 
-  const [show,setShow]=useState(false);
+  const statusMap: Record<string, number> = {
+  "Request Received": 1,
+  "Searching Part": 2,
+  "Price Confirmed": 3,
+  "Part Purchased": 4,
+  "Packed": 5,
+  "Shipped": 6,
+  "Delivered": 7
+};
+
+const { data, isLoading, isError } = useGetTracker(orderId); //here
 
  
 
-const [currentStatus, setCurrentStatus] = useState(3); //setcurrent when api calls
+const currentStatus = statusMap[data?.data?.status] || 0; //setcurrent when api calls
 
   const handleSearch=(e:React.FormEvent)=>{
-    e.preventDefault();
-    setShow(true);
+     e.preventDefault();
+  const trimmed = search.trim();
+  setSearch(trimmed);
+  if (!trimmed) return;
+  setIsSearching(true); //check here
+  setOrderId(trimmed);  
   }
+
+  useEffect(() => {
+  if (!isLoading) {
+    setIsSearching(false);    //check here
+  }
+}, [isLoading]);
 
   return (
     <div className='pt-20 md:pt-30 px-3 text-white bg-[#0C0B1D] bg-[radial-gradient(circle_at_top,rgba(77,47,140,0.35),transparent_50%)] min-h-screen'>
@@ -50,8 +73,17 @@ const [currentStatus, setCurrentStatus] = useState(3); //setcurrent when api cal
           </button>
 
         </div>
+
+        {isSearching && (
+          <div className='gap-2 p-3 md:gap-4 md:p-8 max-w-5xl mx-auto mt-5 flex items-center justify-center'>
+ <div className='border-b-5 border-t-2 border-l-2 border-r-2 border-purple-500 h-10 w-10 md:h-15 md:w-15 rounded-full animate-spin drop-shadow-sm drop-shadow-purple-500'/>
+ </div>
+)}
+
+        {!isSearching && orderId && isError &&<OrderNotFoundMsg/>}
+
       
-            {show ? (
+            {!isSearching && orderId && data?.success && (
             <div className='border gap-5 md:gap-0 border-[#372A5F] rounded-lg p-8 max-w-5xl mx-auto mt-5 flex flex-col lg:flex-row items-center lg:items-start justify-between lg:gap-0'>
              {steps.map((item, index) => {
 
@@ -98,15 +130,10 @@ const [currentStatus, setCurrentStatus] = useState(3); //setcurrent when api cal
                )
               )
              }
-             
-             
                )}
             </div>
 
-            ):(
-             <OrderNotFoundMsg/>
             )}
-
     </div>
   )
 }

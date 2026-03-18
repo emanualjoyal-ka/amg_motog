@@ -1,4 +1,4 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query"
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { axiosInstance } from "../lib/axios";
 import { API_URL } from "../constants/apiUrlConstants";
 
@@ -16,5 +16,19 @@ export const useCreateRequest=()=>{
         onSuccess:()=>{
             queryClient.invalidateQueries({queryKey:["requests"]});
         }
+    })
+}
+
+
+export const useGetTracker=(orderId: string)=>{
+    return useQuery({
+        queryKey:["tracker",orderId],
+        queryFn:async()=>{
+            const response=await axiosInstance.get(API_URL.GET_TRACKER(orderId));
+            return response.data;
+        },
+        enabled: !!orderId,   
+        staleTime: 0,       
+        gcTime: 0,   
     })
 }
