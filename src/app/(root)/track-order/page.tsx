@@ -7,6 +7,8 @@ import { useGetTracker } from '@/src/controllers/requestController';
 const page = () => {
 
   const [search,setSearch]=useState("")
+  const [error,setError]=useState(false)
+
   const [orderId, setOrderId] = useState("")  //here
   const [isSearching, setIsSearching] = useState(false)  //here
 
@@ -20,6 +22,8 @@ const page = () => {
   "Delivered": 7
 };
 
+
+
 const { data, isLoading, isError } = useGetTracker(orderId); //here
 
  
@@ -30,9 +34,13 @@ const currentStatus = statusMap[data?.data?.status] || 0; //setcurrent when api 
      e.preventDefault();
   const trimmed = search.trim();
   setSearch(trimmed);
+  if(search===""){
+    setError(true);
+  }
   if (!trimmed) return;
   setIsSearching(true); //check here
-  setOrderId(trimmed);  
+  setOrderId(trimmed); 
+   
   }
 
   useEffect(() => {
@@ -43,16 +51,17 @@ const currentStatus = statusMap[data?.data?.status] || 0; //setcurrent when api 
 
   return (
     <div className='pt-20 md:pt-30 px-3 text-white bg-[#0C0B1D] bg-[radial-gradient(circle_at_top,rgba(77,47,140,0.35),transparent_50%)] min-h-screen'>
-              <h1 className="text-center select-none font-bold text-3xl md:text-4xl text-[silver] mb-3 drop-shadow-[0_2px_1px_rgba(255,255,255,0.6)]">
+              <h1 className="text-center cursor-default font-bold text-3xl md:text-4xl text-[silver] mb-3 drop-shadow-[0_2px_1px_rgba(255,255,255,0.6)]">
                 Track Your Order
                 </h1>
-                <p className='text-center select-none text-[silver]'>Enter your Order ID below to check the latest status of your spare part request and delivery.</p>
-                <p className='text-center select-none text-[silver]'>You can find your Order ID in the confirmation message sent via WhatsApp or SMS.</p>
+                <p className='text-center cursor-default text-[silver]'>Enter your Order ID below to check the latest status of your spare part request and delivery.</p>
+                <p className='text-center cursor-default text-[silver]'>You can find your Order ID in the confirmation message sent via WhatsApp or SMS.</p>
                  <div className="relative border border-[#372A5F] max-w-5xl mx-auto mt-10 flex flex-col gap-4 md:flex-row p-4 md:p-8  rounded-2xl">
           <input
             value={search}
             onChange={(e) => {
               setSearch(e.target.value);
+              setError(false);
             }}
             onKeyDown={(e)=>{
               if(e.key === "Enter"){
@@ -61,7 +70,7 @@ const currentStatus = statusMap[data?.data?.status] || 0; //setcurrent when api 
             }}
             type="text"
             placeholder="Enter Order ID (e.g., AMG-7F3D9A21)"
-            className="w-full md:w-[80%] border py-5 border-[#372A5F] outline-none bg-[#303030]/20 backdrop-blur-md rounded-lg px-3 focus:shadow-[1px_1px_6px_3px_rgba(60,8,126,0.8)] transitin-all duration-300"
+            className={`w-full md:w-[80%] border py-5  outline-none bg-[#303030]/20 backdrop-blur-md rounded-lg px-3 focus:shadow-[1px_1px_6px_3px_rgba(60,8,126,0.8)] transitin-all duration-300 ${error ? "border-red-500" : "border-[#372A5F]"}`}
           />
           <button
             onClick={handleSearch}
@@ -73,11 +82,29 @@ const currentStatus = statusMap[data?.data?.status] || 0; //setcurrent when api 
           </button>
 
         </div>
+        
 
         {isSearching && (
-          <div className='gap-2 p-3 md:gap-4 md:p-8 max-w-5xl mx-auto mt-5 flex items-center justify-center'>
- <div className='border-b-5 border-t-2 border-l-2 border-r-2 border-purple-500 h-10 w-10 md:h-15 md:w-15 rounded-full animate-spin drop-shadow-sm drop-shadow-purple-500'/>
- </div>
+           <div className='border border-[#372A5F] rounded-lg p-8 max-w-5xl mx-auto mt-5 flex flex-col lg:flex-row items-center justify-between animate-pulse'>
+
+    {steps.map((_, index) => (
+      <div key={index} className="flex flex-col my-5 items-center flex-1 relative">
+
+      
+        <div className="w-10 h-10 rounded-full bg-gray-700 mb-4" />
+
+      
+        {index !== steps.length - 1 && (
+          <div className="hidden lg:block absolute top-5 left-1/2 w-full h-[2px] bg-gray-700" />
+        )}
+
+        
+        <div className="h-5 w-20 bg-gray-700 rounded" />
+
+      </div>
+    ))}
+
+  </div>
 )}
 
         {!isSearching && orderId && isError &&<OrderNotFoundMsg/>}
