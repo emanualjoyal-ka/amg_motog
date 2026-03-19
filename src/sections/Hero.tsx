@@ -2,6 +2,8 @@
 import WhyChooseUs from '../components/WhyChooseUs'
 import { useRouter } from 'next/navigation';
 import ShinyText from "../../components/ShinyText"
+import Image from 'next/image';
+import HeroImage from "@/public/bgnew.png";
 
 const Hero = () => {
 
@@ -9,7 +11,6 @@ const Hero = () => {
   return (
     // <div style={{ backgroundImage:"url('/new2.jpg')"}} className='min-h-screen relative pt-25 px-3 md:px-16 bg-cover bg-center'>
     <div className='min-h-screen flex flex-col lg:flex-row relative pt-25 px-5 lg:px-16 bg-[radial-gradient(circle_at_top,rgba(77,47,140,0.35),transparent_50%)] '>
-      
            <div className='md:pt-20 flex flex-col items-center lg:items-start order-2 lg:order-0'>
             <ShinyText
   text="Reliable Bike Parts for Everyday Riders"
@@ -52,8 +53,9 @@ const Hero = () => {
         <WhyChooseUs/>
         </div>
 
-        <div className='flex items-center mb-5 md:mb-0 animate-float drop-shadow-[0_20px_25px_rgba(0,0,0,0.5)] justify-center'>
-          <img src="/bgnew.png" alt="Image of Motorcycle Parts" />
+        <div className='flex items-center mb-5 md:mb-0 rounded-3xl animate-float drop-shadow-[0_20px_25px_rgba(0,0,0,0.5)] justify-center'>
+          {/* <img src="/bgnew.png" alt="Image of Motorcycle Parts" /> */}
+          <Image src={HeroImage} priority placeholder='blur' alt="Motorcycle parts" className='rounded-3xl'/>
         </div>
 
 
