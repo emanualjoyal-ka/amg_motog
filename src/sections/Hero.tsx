@@ -4,13 +4,17 @@ import { useRouter } from 'next/navigation';
 import ShinyText from "../../components/ShinyText"
 import Image from 'next/image';
 import HeroImage from "@/public/bgnew.png";
+import { useRef } from 'react';
+import { useHeroAnimation } from '../hooks/useHeroAnimation';
 
 const Hero = () => {
 
+  const containerRef=useRef<HTMLDivElement | null>(null)
+  useHeroAnimation(containerRef);
     const router=useRouter();
   return (
     // <div style={{ backgroundImage:"url('/new2.jpg')"}} className='min-h-screen relative pt-25 px-3 md:px-16 bg-cover bg-center'>
-    <div className='min-h-screen flex flex-col lg:flex-row relative pt-25 px-5 lg:px-16 bg-[radial-gradient(circle_at_top,rgba(77,47,140,0.35),transparent_50%)] '>
+    <div ref={containerRef} className='min-h-screen flex flex-col lg:flex-row relative pt-25 px-5 lg:px-16 bg-[radial-gradient(circle_at_top,rgba(77,47,140,0.35),transparent_50%)] '>
            <div className='md:pt-20 flex flex-col items-center lg:items-start order-2 lg:order-0'>
             <ShinyText
   text="Reliable Bike Parts for Everyday Riders"
@@ -23,14 +27,14 @@ const Hero = () => {
   yoyo={false}
   pauseOnHover={false}
   disabled={false}
-  className='text-4xl cursor-default drop-shadow-[0_2px_1px_rgba(255,255,255,0.6)] text-center lg:text-left lg:w-140 md:text-6xl font-bold text-white'
+  className='heading text-4xl cursor-default drop-shadow-[0_2px_1px_rgba(255,255,255,0.6)] text-center lg:text-left lg:w-140 md:text-6xl font-bold text-white'
 />
 
             
-        <h2 className='md:text-xl text-center cursor-default lg:text-left text-white mt-2'>Quality bike parts tested in real workshops,</h2>
-        <h2 className='md:text-xl text-center cursor-default lg:text-left text-white '> Reliable performance at honest prices.</h2>
+        <h2 className='subtext md:text-xl text-center cursor-default lg:text-left text-white mt-2'>Quality bike parts tested in real workshops,</h2>
+        <h2 className='subtext md:text-xl text-center cursor-default lg:text-left text-white '> Reliable performance at honest prices.</h2>
 
-<div className="flex flex-col lg:flex-row gap-5 mt-4 w-[90%] lg:w-full">
+<div className="btn flex flex-col lg:flex-row gap-5 mt-4 w-[90%] lg:w-full">
            <button onClick={()=>router.push('/request-a-part')} className=' relative w-full hover:bg-[linear-gradient(to_right,rgba(60,8,126)_0%,rgba(60,8,126,0.32)_100%)]
                       md:px-6 px-4 py-3  font-bold  rounded-lg text-white border-[1px] border-[#4D2F8C] cursor-pointer'>
             Request Part Now
