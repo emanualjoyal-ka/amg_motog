@@ -1,14 +1,13 @@
-'use client'
+"use client";
 
-import gsap from "gsap"
-import { RefObject, useLayoutEffect } from "react"
-import { navBarAnimation } from "../animations/navBar"
+import { useGSAP } from "@gsap/react";
+import { navBarAnimation } from "../animations/navBar";
+import { RefObject } from "react";
 
-export const useNavBarAnimation=(ref:RefObject<HTMLDivElement>)=>{
-    useLayoutEffect(()=>{
-        const ctx=gsap.context(()=>{
-            navBarAnimation(ref.current);
-        })
-        return ()=>ctx.revert();
-    },[])
-}
+
+export const useNavBarAnimation = (scope:RefObject<HTMLDivElement | null>) => {
+  useGSAP(() => {
+    navBarAnimation();
+    
+  }, { scope });
+};

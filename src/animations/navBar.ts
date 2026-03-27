@@ -1,17 +1,24 @@
-import gsap from 'gsap';
+import gsap from "gsap";
 
-export const navBarAnimation=(container:HTMLDivElement)=>{
-    const tl=gsap.timeline();
-    tl.from(container.querySelector(".title"),{
-        y:-80,
-        opacity:0
+export const navBarAnimation = () => {
+
+  const tl=gsap.timeline();
+  tl.from(".title", {
+    y: -80,
+    opacity: 0,
+    rotate: -10,
+    duration: 0.5,
+  })
+    .from(".menu", {
+      y: -80,
+      opacity: 0,
+      rotate: -10,
+      duration: 0.5,
     })
-    .from(container.querySelector(".menu"),{
-         y:-80,
-        opacity:0
-    })
-    .from(container.querySelector(".btn"),{
-         y:-80,
-        opacity:0
-    })
-}
+    .from(".btn", {
+      y: -80,
+      opacity: 0,
+      rotate: -10,
+      duration: 0.5,
+    });
+};
