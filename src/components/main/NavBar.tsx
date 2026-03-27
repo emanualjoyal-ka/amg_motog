@@ -1,10 +1,15 @@
 'use client'
+import { useNavBarAnimation } from '@/src/hooks/useNavBarAnimation';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react'
 
 const NavBar = () => {
 
+  const container=useRef<HTMLDivElement | null>(null);
+
+  useNavBarAnimation(container)
+ 
 
       const menuItems=[
     {
@@ -74,16 +79,16 @@ const NavBar = () => {
 
 
   return (
-     <div className={`${isScrolled ? 'bg-[rgba(10,10,30,0.7)] backdrop-blur-md' : 'bg-transparent'} px-5 lg:px-15 py-2 md:py-5 fixed w-full transition-all duration-200 top-0 left-0 z-50`}>
+     <div ref={container}  className={`${isScrolled ? 'bg-[rgba(10,10,30,0.7)] backdrop-blur-md' : 'bg-transparent'} px-5 lg:px-15 py-2 md:py-5 fixed w-full transition-all duration-200 top-0 left-0 z-50`}>
           <div className='flex justify-between items-center'>
-            <h1 className="text-3xl md:text-4xl  font-bold text-white cursor-default font-audiowide">AMG</h1>
-          <ul className="hidden lg:flex gap-2 border-2 border-white/10 bg-blue/80 shadow-2xl backdrop-blur-md p-1 rounded-full">
+            <h1 className="title text-3xl md:text-4xl  font-bold text-white cursor-default font-audiowide">AMG</h1>
+          <ul className="menu hidden lg:flex gap-2 border-2 border-white/10 bg-blue/80 shadow-2xl backdrop-blur-md p-1 rounded-full">
             {menuItems.map((item,index)=>(
               <Link
                 onClick={() => setIsMobileMenuOpen(false)} 
                 key={index}
                 href={item.path}
-                className={` transition-all duration-300 py-2 px-6 rounded-full cursor-pointer  tracking-widest ${Navigation(item.path)}`}
+                className={`names transition-all duration-300 py-2 px-6 rounded-full cursor-pointer  tracking-widest ${Navigation(item.path)}`}
               >
               {item.name}
               </Link>
@@ -93,7 +98,7 @@ const NavBar = () => {
 
 
 
-          <div className='flex items-center gap-5'>
+          <div className='btn flex items-center gap-5'>
             <button onClick={()=>router.push("/contact")} className='hidden lg:block bg-[linear-gradient(to_right,rgba(60,8,126,0)_0%,rgba(60,8,126,0.32)_100%)]
                       shadow-[inset_0_0_12px_rgba(191,151,255,0.24)]
                       hover:bg-[rgba(60,8,126,0.32)_100%)] font-bold
