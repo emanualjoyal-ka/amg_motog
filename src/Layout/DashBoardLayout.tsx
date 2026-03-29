@@ -4,7 +4,12 @@ import React from 'react'
 import MobileSideBar from './MobileSideBar';
 import DesktopSideBar from './DesktopSideBar';
 
-const DashBoardLayout = ({children}) => {
+
+type DashBoardLayoutProps = {
+  children: React.ReactNode;
+};
+
+const DashBoardLayout:React.FC<DashBoardLayoutProps> = ({children}) => {
 
     const [isOpen, setIsOpen] = React.useState(false);
 

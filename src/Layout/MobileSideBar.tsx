@@ -4,8 +4,13 @@ import { LogOut, X } from 'lucide-react'
 import { sidebarItems } from '../config/sideBar'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
+import React from 'react'
 
-const MobileSideBar = ({closeSidebar}) => {
+type MobileSideBarProps = {
+  closeSidebar: () => void;
+};
+
+const MobileSideBar:React.FC<MobileSideBarProps> = ({closeSidebar}) => {
 
 
     const pathname=usePathname();
