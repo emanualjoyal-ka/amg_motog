@@ -1,6 +1,10 @@
+import { useRouter } from "next/navigation"
 
 
 const OrderNotFoundMsg = () => {
+
+  const router=useRouter();
+
   return (
     <>
      <div className='border border-red-500 flex  items-center gap-2 p-3 md:gap-4 rounded-lg md:p-8 max-w-5xl mx-auto mt-5'>
@@ -14,6 +18,9 @@ const OrderNotFoundMsg = () => {
                   <p className='font-bold text-xl md:text-2xl'>Order not found</p>
                 <p className='text-red-500 text-sm md:text-md'>The Order ID you entered could not be found</p>
                 <p className='text-sm md:text-md text-[silver] mt-2'>Please check your order ID and try again.</p>
+                <button className="mt-3 px-6 py-2 rounded-lg bg-indigo-600 hover:bg-indigo-500 text-white font-semibold" onClick={()=>router.push("/contact")}>
+  Contact Support
+</button>
                 </div>
 
               </div>

@@ -3,7 +3,7 @@ import React from 'react'
 const FollowInfo = () => {
   return (
     <>
-    <div className="border-[#26345D] mt-5 border bg-[#303030]/20  backdrop-blur-md p-5 md:p-8 rounded-lg">
+    <div className="bg-white/5 border border-white/10 mt-5  backdrop-blur-md p-5 md:p-8 rounded-lg">
             <p className="text-xl md:text-2xl text-white text-center md:text-left cursor-default">Follow us</p>
             <div className='flex justify-center md:justify-start gap-10 md:gap-5 mt-5'>
                 <div className="h-12 w-12 md:h-15 md:w-15 bg-[#0766FF] flex justify-center items-center rounded-full hover:scale-110 transition-hover duration-300 cursor-pointer">

@@ -51,12 +51,17 @@ const currentStatus = statusMap[data?.data?.status] || 0; //setcurrent when api 
 
   return (
     <div className='pt-20 md:pt-30 px-3 text-white bg-[#0C0B1D] bg-[radial-gradient(circle_at_top,rgba(77,47,140,0.35),transparent_50%)] min-h-screen'>
+             <p className="text-xs uppercase tracking-[0.3em] text-gray-500 text-center mb-2">
+  TRACK ORDER
+</p>
               <h1 className="text-center cursor-default font-bold text-3xl md:text-4xl text-[silver] mb-3 drop-shadow-[0_2px_1px_rgba(255,255,255,0.6)]">
                 Track Your Order
                 </h1>
-                <p className='text-center cursor-default text-[silver]'>Enter your Order ID below to check the latest status of your spare part request and delivery.</p>
-                <p className='text-center cursor-default text-[silver]'>You can find your Order ID in the confirmation message sent via WhatsApp or SMS.</p>
-                 <div className="relative border border-[#372A5F] max-w-5xl mx-auto mt-10 flex flex-col gap-4 md:flex-row p-4 md:p-8  rounded-2xl">
+            <div className="w-30 h-[2px] bg-gradient-to-r from-transparent via-indigo-500 to-transparent mx-auto mt-4"></div>
+
+                <p className='text-center cursor-default text-[silver] mt-2'>Enter your Order ID below to check the latest status of your spare part request and delivery.</p>
+                <p className='text-center cursor-default text-[silver]'>You can find your Order ID in the confirmation message sent via WhatsApp.</p>
+          <div className="hover:shadow-[0_0_20px_rgba(99,102,241,0.15)] transition-shadow duration-300 relative border border-[#372A5F] max-w-5xl mx-auto mt-10 flex flex-col gap-4 md:flex-row p-4 md:p-8 rounded-2xl bg-white/5 backdrop-blur-md">
           <input
             value={search}
             onChange={(e) => {
@@ -70,7 +75,7 @@ const currentStatus = statusMap[data?.data?.status] || 0; //setcurrent when api 
             }}
             type="text"
             placeholder="Enter Order ID (e.g., AMG-7F3D9A21)"
-            className={`w-full md:w-[80%] border py-5  outline-none bg-[#303030]/20 backdrop-blur-md rounded-lg px-3 focus:shadow-[1px_1px_6px_3px_rgba(60,8,126,0.8)] transitin-all duration-300 ${error ? "border-red-500" : "border-[#372A5F]"}`}
+            className={`w-full md:w-[80%] border py-5 placeholder:text-gray-400 placeholder:italic outline-none bg-[#303030]/20 backdrop-blur-md rounded-lg px-3 transition-all duration-300 ${error ? "border-red-800" : "border-[#372A5F]"}`}
           />
           <button
             onClick={handleSearch}
@@ -147,9 +152,9 @@ const currentStatus = statusMap[data?.data?.status] || 0; //setcurrent when api 
              
                    </div>
              
-                   <h3 className={`mb-2 mx-3 ${isComplete ? "text-green-500" : "text-gray-600"}`}>
-                     {item.label}
-                   </h3>
+                  <h3 className={`mb-2 mx-3 ${isComplete ? "text-green-500 font-semibold" : "text-gray-400"}`}>
+  {item.label}
+</h3>
              
                   
              

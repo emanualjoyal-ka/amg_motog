@@ -30,7 +30,7 @@ const QuickLinks = () => {
   return (
     <>
       <div>
-        <p className="font-bold cursor-default text-white">Quick Links</p>
+        <p className="text-white font-semibold mb-3 cursor-default tracking-wide">Quick Links</p>
         <div>
           <ul className="text-white/50 space-y-1 md:space-y-2 mt-1 md:mt-4">
             {menuItems.map((item, index) => (

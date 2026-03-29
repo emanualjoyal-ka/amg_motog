@@ -4,7 +4,7 @@ const ContactInfo = () => {
 
   return (
     <>
-    <div className="border-[#26345D] cursor-default border bg-[#303030]/20  backdrop-blur-md p-5 md:p-8 rounded-lg">
+    <div className="bg-white/5 border border-white/10 cursor-default  backdrop-blur-md p-5 md:p-8 rounded-lg">
             <p className="text-xl md:text-2xl md:text-left text-center text-white">Contact Information</p>
             {contactDetails.map((item)=>(
                 <div key={item.id} className="flex items-center gap-3 mt-5">
@@ -13,7 +13,7 @@ const ContactInfo = () => {
               </div>
               <div>
                 <p className="text-white">{item.type}</p>
-                <p className="text-white md:w-60">{item.value}</p>
+                <p className="text-gray-300 md:w-60">{item.value}</p>
               </div>
             </div>
             ))}
