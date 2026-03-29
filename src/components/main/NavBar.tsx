@@ -1,14 +1,10 @@
 'use client'
-import { useNavBarAnimation } from '@/src/hooks/useNavBarAnimation';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useRef, useState } from 'react'
 
 const NavBar = () => {
 
-  const container=useRef<HTMLDivElement | null>(null);
-
-  useNavBarAnimation(container)
  
 
       const menuItems=[
@@ -34,7 +30,7 @@ const NavBar = () => {
 
   const Navigation = (path : string) => {
     return pathname === path
-      ? "text-black bg-white"
+      ? "text-[#0C0B1D] bg-white"
       : "text-white bg-white/20 hover:bg-white/30";
   };
 
@@ -79,10 +75,10 @@ const NavBar = () => {
 
 
   return (
-     <div ref={container}  className={`${isScrolled ? 'bg-[rgba(10,10,30,0.7)] backdrop-blur-md' : 'bg-transparent'} px-5 lg:px-15 py-2 md:py-5 fixed w-full transition-all duration-200 top-0 left-0 z-50`}>
+     <div className={`${isScrolled ? 'bg-[rgba(10,10,30,0.7)] backdrop-blur-md' : 'bg-transparent'} px-5 lg:px-15 py-2 md:py-5 fixed w-full transition-all duration-200 top-0 left-0 z-50`}>
           <div className='flex justify-between items-center'>
-            <h1 className="title text-3xl md:text-4xl  font-bold text-white cursor-default font-audiowide">AMG</h1>
-          <ul className="menu hidden lg:flex gap-2 border-2 border-white/10 bg-blue/80 shadow-2xl backdrop-blur-md p-1 rounded-full">
+            <h1 className="text-3xl md:text-4xl  font-bold text-white cursor-default font-audiowide">AMG</h1>
+          <ul className="hidden lg:flex gap-2 border-2 border-white/10 bg-blue/80 shadow-2xl backdrop-blur-md p-1 rounded-full">
             {menuItems.map((item,index)=>(
               <Link
                 onClick={() => setIsMobileMenuOpen(false)} 
@@ -98,11 +94,11 @@ const NavBar = () => {
 
 
 
-          <div className='btn flex items-center gap-5'>
+          <div className='flex items-center gap-5'>
             <button onClick={()=>router.push("/contact")} className='hidden lg:block bg-[linear-gradient(to_right,rgba(60,8,126,0)_0%,rgba(60,8,126,0.32)_100%)]
                       shadow-[inset_0_0_12px_rgba(191,151,255,0.24)]
                       hover:bg-[rgba(60,8,126,0.32)_100%)] font-bold
-                      px-4 py-3 rounded-lg text-white border-[1px] transition-hover duration-300 border-[#4D2F8C] cursor-pointer'>
+                      px-6 py-3 rounded-lg text-white border-[1px] transition-hover duration-300 border-[#4D2F8C] cursor-pointer'>
               Contact
             </button>
 

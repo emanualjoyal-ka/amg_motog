@@ -5,18 +5,28 @@ import FollowUs from "../Footer_Components/FollowUs";
 
 const Footer = () => {
   return (
-    <div className="px-5 xl:px-15 py-10 bg-gradient-to-br from-[#0C0B1D] from-50% to-black tp-50%">
-      <div className="flex flex-col gap-6 lg:flex-row justify-between">
-        <h1 className="md:text-4xl text-3xl cursor-default  font-bold text-white font-audiowide">AMG</h1>
+    <div className="px-5 xl:px-15 pb-10 bg-gradient-to-br from-[#0C0B1D] from-50% to-black tpo-50%">
+      <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-indigo-500/40 to-transparent mb-10"></div>
+
+      <div className="flex py-10 flex-col gap-6 lg:flex-row justify-between">
+        <div className="max-w-xs">
+  <h1 className="md:text-4xl text-3xl font-bold text-white font-audiowide">
+    AMG
+  </h1>
+  <p className="text-gray-400 text-sm mt-3 leading-relaxed">
+    Helping riders find genuine and rare motorcycle spare parts with ease and reliability.
+  </p>
+</div>
         <QuickLinks />
         <Contacts />
         <GuideLines />
         <FollowUs />
       </div>
       <hr className="my-6 md:my-10 border-none h-0.25 bg-[#1E2939]" />
-      <p className="text-center text-[#99A1AF] cursor-default">
-        © {new Date().getFullYear()} AMG Auto Parts & Services.
-      </p>
+      <div className="flex flex-col md:flex-row items-center justify-between text-gray-500 text-sm gap-3">
+  <p>© {new Date().getFullYear()} AMG Auto Parts & Services.</p>
+  <p>All rights reserved.</p>
+</div>
     </div>
   );
 };

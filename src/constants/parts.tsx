@@ -181,7 +181,7 @@
             desc:"Front forks, rear shock absorbers and suspension components.",
             icon:(
                <svg
-        className="w-full h-full drop-shadow-md"
+        className="w-full h-full drop-shadow-md rotate-25"
         viewBox="-6.79 0 20 20"
         xmlns="http://www.w3.org/2000/svg"
       >
