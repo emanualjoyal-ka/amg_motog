@@ -13,10 +13,6 @@ const DashBoardLayout:React.FC<DashBoardLayoutProps> = ({children}) => {
 
     const [isOpen, setIsOpen] = React.useState(false);
 
-
-    
-
-
      const openSidebar = () => {
    
     setIsOpen(true);
@@ -29,17 +25,20 @@ const DashBoardLayout:React.FC<DashBoardLayoutProps> = ({children}) => {
   return (
     <div>
          <div className="w-screen h-dvh relative overflow-hidden grid grid-cols-10 grid-rows-10 gap-2 p-2">
-            <nav className="bg-white/5 backdrop-blur-md border border-white/10 row-start-1 row-end-2 col-start-1 col-end-11 md:col-start-3  shadow-[0_2px_4px_rgba(0,0,0,0.1)] flex items-center justify-between px-4 py-3 text-black rounded-lg ">
+            <nav className="bg-white/5 backdrop-blur-md border border-white/10 row-start-1 row-end-2 col-start-1 col-end-11 md:col-start-3 flex items-center justify-between px-4 py-3 text-black rounded-lg ">
             <button onClick={openSidebar} >
             <Menu className="md:hidden text-white" />
           </button>
           
              
-            <div className="flex flex-col items-center">
+            <div className='flex items-center gap-2'>
+              <div className='text-right'>
+                <p className='text-white'>user</p>
+                <p className='text-white'>admin</p>
+              </div>
             <div className="bg-white/30 border border-white/30 text-white h-8 w-8 rounded-full flex items-center justify-center overflow-hidden">
               <User/>
             </div>
-              <p className='text-white'>user</p>
             </div>
           
          
