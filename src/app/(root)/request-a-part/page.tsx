@@ -59,7 +59,7 @@ Order is processed and shipped
 
 
     <div className=' xl:w-[55%] order-1 md:order-2 py-6 md:py-8 px-4 md:px-6 
-bg-white/5 border border-white/10 rounded-2xl '>
+bg-white/5 border border-white/10 rounded-2xl backdrop-blur-md'>
 
         
         <h1 className='text-center cursor-default md:text-left font-bold  md:text-lg mb-8'>Tell us what part you need.</h1>

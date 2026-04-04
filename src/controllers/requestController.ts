@@ -32,3 +32,14 @@ export const useGetTracker=(orderId: string)=>{
         gcTime: 0,   
     })
 }
+
+
+export const useGetAllRequests=()=>{
+    return useQuery({
+        queryKey:["requests"],
+        queryFn:async()=>{
+            const response=await axiosInstance.get(API_URL.GET_REQUESTS);
+            return response.data.data;
+        },
+    })
+}
