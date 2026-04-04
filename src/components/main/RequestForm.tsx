@@ -100,7 +100,7 @@ if (form.image) {
         
       },
 
-      onError:()=>{
+      onError:()=>{ 
         console.log("Failed to sent request");
         
       }
