@@ -2,9 +2,10 @@
 
 import { LogOut, X } from 'lucide-react'
 import { sidebarItems } from '../config/sideBar'
-import { usePathname } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import React from 'react'
+import { useAuth } from '../context/AuthContext'
 
 type MobileSideBarProps = {
   closeSidebar: () => void;
@@ -14,6 +15,20 @@ const MobileSideBar:React.FC<MobileSideBarProps> = ({closeSidebar}) => {
 
 
     const pathname=usePathname();
+
+    const router = useRouter();
+    const {logout} = useAuth();
+
+
+    const handleLogout = async () => {
+    try {
+      await logout(); 
+      router.push('/admin/login');
+      closeSidebar(); 
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <>
@@ -60,7 +75,7 @@ const MobileSideBar:React.FC<MobileSideBarProps> = ({closeSidebar}) => {
 
      <div className="w-full">
       <button
-        // onClick={handleLogout}
+        onClick={handleLogout}
         className="group flex justify-start items-center gap-2 p-2 rounded-lg hover:bg-orange-500 hover:text-white w-full"
       >
         <LogOut className="w-5 h-5 text-red-500 group-hover:text-white" />

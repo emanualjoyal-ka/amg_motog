@@ -1,10 +1,13 @@
 'use client'
+import { useAuth } from '@/src/context/AuthContext';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react'
 
 const LoginForm = () => {
 
     const router=useRouter();
+
+    const {login}=useAuth();
 
     const [show,setShow]=useState(false);
 
@@ -17,7 +20,8 @@ const LoginForm = () => {
   const emailValidate = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 
-    const handleSubmit=(e:React.FormEvent)=>{
+
+    const handleSubmit=async(e:React.FormEvent)=>{
         e.preventDefault();
         if( email === "" ||!(emailValidate.test(email))){
             setEmailError(true);
@@ -25,6 +29,15 @@ const LoginForm = () => {
         if(password === ""){
             setPasswdError(true);
         }
+
+        try {
+          await login({email,password});
+          router.push("/admin/dashboard");
+        } catch (error) {
+          console.log(error);
+          
+        }
+
     }
 
   return (

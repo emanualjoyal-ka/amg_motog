@@ -1,13 +1,28 @@
 'use client'
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { LogOut } from 'lucide-react';
 import { sidebarItems } from '../config/sideBar';
+import { useAuth } from '../context/AuthContext';
 
 const DesktopSideBar = () => {
 
 
     const pathname = usePathname();
+
+     const router = useRouter();
+        const {user,logout} = useAuth();
+    
+    
+        const handleLogout = async () => {
+        try {
+          await logout(); 
+          router.push('/admin/login');
+          
+        } catch (error) {
+          console.log(error);
+        }
+      };
 
   return (
     <div className='flex flex-col items-center justify-between h-full'>
@@ -20,7 +35,10 @@ const DesktopSideBar = () => {
 
 
           <ul className="flex flex-col w-full gap-3">
-          {sidebarItems.map((item) => {
+          {sidebarItems.filter((item) => {
+            if(!item.role)return true; 
+            return item.role === user?.role}
+          ).map((item) => {
             const isActive = pathname === item.link;
 
             return (
@@ -57,7 +75,7 @@ const DesktopSideBar = () => {
 
           <div className="w-full">
         <button
-        //   onClick={handleLogout}
+          onClick={handleLogout}
           className="group flex cursor-pointer justify-start items-center gap-2 p-3 rounded-lg hover:bg-white/5 transition duration-300 hover:text-white w-full"
         >
           <LogOut className="w-5 h-5 text-red-500" />
