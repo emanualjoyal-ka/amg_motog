@@ -1,6 +1,6 @@
 
 
-import { BarChart3, ClipboardList, IndianRupee, LayoutDashboard, RefreshCcw, ShieldUser, Truck, Users } from "lucide-react";
+import { BarChart3, ClipboardList, IndianRupee, LayoutDashboard, MessageSquare, RefreshCcw, ShieldUser, Truck, Users } from "lucide-react";
 
 export const sidebarItems = [
   {
@@ -46,10 +46,17 @@ export const sidebarItems = [
   icon: Users
 },
     {
-        id:8,
+  id: 8,
+  title: "Contacts / Feedback",
+  link: "/admin/contacts",
+  icon: MessageSquare
+},
+    {
+        id:9,
         title:"Admin users",
         link:"/admin/admin-users",
-        icon:ShieldUser
+        icon:ShieldUser,
+        role:"superadmin"
     },
     
    

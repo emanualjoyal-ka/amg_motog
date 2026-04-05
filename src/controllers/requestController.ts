@@ -1,6 +1,6 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { axiosInstance } from "../lib/axios";
-import { API_URL } from "../constants/apiUrlConstants";
+import { API_URL_CONSTANTS } from "../constants/apiUrlConstants";
 
 
 export const useCreateRequest=()=>{
@@ -8,7 +8,7 @@ export const useCreateRequest=()=>{
 
     return useMutation({
         mutationFn:async (formData:FormData)=>{
-            const response=await axiosInstance.post(API_URL.CREATE_REQUEST,formData,
+            const response=await axiosInstance.post(API_URL_CONSTANTS.CREATE_REQUEST,formData,
                  { headers: { "Content-Type": "multipart/form-data" } }
             )
             return response.data;
@@ -24,7 +24,7 @@ export const useGetTracker=(orderId: string)=>{
     return useQuery({
         queryKey:["tracker",orderId],
         queryFn:async()=>{
-            const response=await axiosInstance.get(API_URL.GET_TRACKER(orderId));
+            const response=await axiosInstance.get(API_URL_CONSTANTS.GET_TRACKER(orderId));
             return response.data;
         },
         enabled: !!orderId,   
@@ -38,7 +38,16 @@ export const useGetAllRequests=()=>{
     return useQuery({
         queryKey:["requests"],
         queryFn:async()=>{
-            const response=await axiosInstance.get(API_URL.GET_REQUESTS);
+            const response=await axiosInstance.get(API_URL_CONSTANTS.GET_REQUESTS);
+            return response.data.data;
+        },
+    })
+}
+export const useGetAllAdmins=()=>{
+    return useQuery({
+        queryKey:["admins"],
+        queryFn:async()=>{
+            const response=await axiosInstance.get(API_URL_CONSTANTS.GET_ALL_ADMINS);
             return response.data.data;
         },
     })

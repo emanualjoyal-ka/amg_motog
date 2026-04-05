@@ -3,6 +3,7 @@ import { Menu, User } from 'lucide-react'
 import React from 'react'
 import MobileSideBar from './MobileSideBar';
 import DesktopSideBar from './DesktopSideBar';
+import { useAuth } from '../context/AuthContext';
 
 
 type DashBoardLayoutProps = {
@@ -10,6 +11,11 @@ type DashBoardLayoutProps = {
 };
 
 const DashBoardLayout:React.FC<DashBoardLayoutProps> = ({children}) => {
+
+  const {user} = useAuth();
+
+  
+  
 
     const [isOpen, setIsOpen] = React.useState(false);
 
@@ -33,8 +39,8 @@ const DashBoardLayout:React.FC<DashBoardLayoutProps> = ({children}) => {
              
             <div className='flex items-center gap-2'>
               <div className='text-right'>
-                <p className='text-white'>user</p>
-                <p className='text-white'>admin</p>
+                <p className='text-white'>{user?.userName}</p>
+                <p className='text-white text-xs'>{(user?.role)?.toUpperCase()}</p>
               </div>
             <div className="bg-white/30 border border-white/30 text-white h-8 w-8 rounded-full flex items-center justify-center overflow-hidden">
               <User/>
@@ -63,7 +69,7 @@ const DashBoardLayout:React.FC<DashBoardLayoutProps> = ({children}) => {
         </div>
 
         <div
-            // ref={overlayRef}
+            
             onClick={closeSidebar}
             className="bg-black/50 absolute w-screen h-dvh top-0 left-0 md:hidden z-10"
           />

@@ -1,11 +1,11 @@
-import { Audiowide, Inter } from 'next/font/google';
+import { Audiowide, Inter } from "next/font/google";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import QueryProvider from './QueryProvider';
+import QueryProvider from "./QueryProvider";
 import { cn } from "@/lib/utils";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'});
+const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,9 +23,9 @@ export const metadata: Metadata = {
 };
 
 const audiowide = Audiowide({
-  weight: '400',
-  subsets: ['latin'],
-  variable: '--font-audiowide',
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-audiowide",
 });
 
 export default function RootLayout({
@@ -38,9 +38,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${audiowide.variable} ${geistMono.variable} antialiased`}
       >
-        <QueryProvider>
-        {children}
-        </QueryProvider>
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   );
