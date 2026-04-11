@@ -12,7 +12,7 @@ const page = () => {
 
   return (
     <div className='pt-20 md:px-16  text-white bg-[#0C0B1D] md:pt-30 px-3  min-h-screen'>
-        <SuccessPopUp showPopup={showPopup}/>
+        <SuccessPopUp title="Your request has been received." message="We will contact you soon." showPopup={showPopup}/>
         
         <p className="text-xs uppercase tracking-[0.3em] text-gray-500 text-center mb-2">
   Request

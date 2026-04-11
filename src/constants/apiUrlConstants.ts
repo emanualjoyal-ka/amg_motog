@@ -12,7 +12,7 @@ export const API_URL_CONSTANTS={
     LOGOUT:"/api/auth/logout",
     GET_ALL_ADMINS:"/api/auth/all-admins",
     DELETE_REQUEST:(requestId:string)=>`/api/requests/${requestId}`,
-    GET_ALL_CONTACTS:"/api/contacts",
+    GET_ALL_CONTACTS:"/api/contacts"
 }
 
 
