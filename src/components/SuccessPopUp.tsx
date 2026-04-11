@@ -1,4 +1,12 @@
-const SuccessPopUp = ({ showPopup }: { showPopup: boolean }) => {
+const SuccessPopUp = ({
+  showPopup,
+  title,
+  message,
+}: {
+  showPopup: boolean;
+  title: string;
+  message: string;
+}) => {
   return (
     <div
       className={`fixed md:top-[11%] left-1/2 -translate-x-1/2 z-50
@@ -26,8 +34,8 @@ const SuccessPopUp = ({ showPopup }: { showPopup: boolean }) => {
           </svg>
         </div>
         <div className="select-none">
-          <p>Your request has been received.</p>
-          <p>We will contact you soon.</p>
+          <p>{title}</p>
+          <p>{message}</p>
         </div>
       </div>
     </div>
