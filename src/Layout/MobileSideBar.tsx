@@ -17,7 +17,7 @@ const MobileSideBar:React.FC<MobileSideBarProps> = ({closeSidebar}) => {
     const pathname=usePathname();
 
     const router = useRouter();
-    const {logout} = useAuth();
+    const {user,logout} = useAuth();
 
 
     const handleLogout = async () => {
@@ -46,7 +46,10 @@ const MobileSideBar:React.FC<MobileSideBarProps> = ({closeSidebar}) => {
 
 
          <ul className="flex flex-col w-full gap-3">
-          {sidebarItems.map((item) => {
+          {sidebarItems.filter((item)=>{
+            if(!item.role)return true;
+            return item.role === user?.role
+          }).map((item) => {
             const isActive = pathname === item.link;
 
             return (

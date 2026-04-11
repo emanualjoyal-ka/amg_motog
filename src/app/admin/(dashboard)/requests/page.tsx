@@ -1,4 +1,4 @@
-import React from 'react'
+'use client'
 import { RequestTable } from './request-table'
 
 const page = () => {

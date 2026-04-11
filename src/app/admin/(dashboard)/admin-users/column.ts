@@ -1,17 +1,12 @@
 import { ColumnDef } from "@tanstack/react-table"
 
-export type Request = {
-  id: string
-  customer: string
-  bikeBrand: string
-  bikeModel: string
-  partName: string
-  condition: string
-  status: string
-  year?: string
+export type Admins = {
+    userName: string;
+    email: string;
+    role: string;
 }
 
-export const columns: ColumnDef<Request>[] =[
+export const columns: ColumnDef<Admins>[] =[
     {
     accessorKey: "userName",
     header: "User Name",

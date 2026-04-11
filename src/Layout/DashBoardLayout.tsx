@@ -43,7 +43,7 @@ const DashBoardLayout:React.FC<DashBoardLayoutProps> = ({children}) => {
                 <p className='text-white text-xs'>{(user?.role)?.toUpperCase()}</p>
               </div>
             <div className="bg-white/30 border border-white/30 text-white h-8 w-8 rounded-full flex items-center justify-center overflow-hidden">
-              <User/>
+              {user?.userName?.charAt(0).toUpperCase()}
             </div>
             </div>
           
@@ -76,7 +76,7 @@ const DashBoardLayout:React.FC<DashBoardLayoutProps> = ({children}) => {
         </>
     )}
 
-
+    
     </div>
   )
 }

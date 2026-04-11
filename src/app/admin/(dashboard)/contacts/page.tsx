@@ -1,8 +1,10 @@
-import React from 'react'
+import { ContactTable } from './request-table'
 
 const page = () => {
   return (
-    <div>Contacts / Feedback</div>
+    <div>
+      <ContactTable/>
+    </div>
   )
 }
 
