@@ -1,8 +1,8 @@
 "use client"
 
-import { useGetAllAdmins} from "@/src/controllers/requestController"
+import { useGetAllAdmins} from "@/src/controllers/adminController"
 import { DataTable } from "../../../../components/main/data-table"
-import { columns, Request } from "./column"
+import { columns } from "./column"
 
 
 

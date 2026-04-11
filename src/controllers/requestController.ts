@@ -43,12 +43,28 @@ export const useGetAllRequests=()=>{
         },
     })
 }
-export const useGetAllAdmins=()=>{
+
+export const useGetRequestById=(requestId:string)=>{
     return useQuery({
-        queryKey:["admins"],
+        queryKey:["request",requestId],
         queryFn:async()=>{
-            const response=await axiosInstance.get(API_URL_CONSTANTS.GET_ALL_ADMINS);
+            const response=await axiosInstance.get(API_URL_CONSTANTS.GET_REQUEST_BY_ID(requestId));
             return response.data.data;
         },
+        enabled: !!requestId,   
+    })
+}
+
+export const useDeleteRequest=()=>{
+    const queryClient=useQueryClient();
+
+    return useMutation({
+        mutationFn:async (requestId:string)=>{
+            const response=await axiosInstance.delete(API_URL_CONSTANTS.DELETE_REQUEST(requestId));
+            return response.data;
+        },
+        onSuccess:()=>{
+            queryClient.invalidateQueries({queryKey:["requests"]});
+        }
     })
 }
