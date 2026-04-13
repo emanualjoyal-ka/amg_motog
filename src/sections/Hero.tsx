@@ -55,7 +55,6 @@ const Hero = () => {
         </div>
 
         <div className='flex items-center mb-5 md:mb-0 rounded-3xl animate-float drop-shadow-[0_20px_25px_rgba(0,0,0,0.5)] justify-center'>
-          {/* <img src="/bgnew.png" alt="Image of Motorcycle Parts" /> */}
           <Image src={HeroImage} priority placeholder='blur' alt="Motorcycle parts" className='rounded-3xl'/>
         </div>
 

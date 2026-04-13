@@ -1,8 +1,11 @@
 import React from 'react'
+import { CustomerTable } from './request-table'
 
 const page = () => {
   return (
-    <div>customers</div>
+    <div>
+      <CustomerTable/>
+    </div>
   )
 }
 

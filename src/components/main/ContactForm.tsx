@@ -154,9 +154,11 @@ const Form: React.FC<Props> = ({ onSuccess }) => {
           className="bg-[linear-gradient(to_right,rgba(60,8,126,0)_0%,rgba(60,8,126,0.32)_100%)]
                       shadow-[inset_0_0_12px_rgba(191,151,255,0.24)]
                       hover:bg-[rgba(60,8,126,0.32)_100%)]
-                      md:px-6 px-4 py-2 md:py-3 mt-4 font-bold transition-all duration-300 rounded-md text-white border-[1px] border-[#4D2F8C] cursor-pointer"
+                      md:px-6 px-4 py-2 md:py-3 mt-4 font-bold transition-all flex justify-center items-center duration-300 rounded-md text-white border-[1px] border-[#4D2F8C] cursor-pointer"
         >
-          Send Message
+          {isPending ? 
+            <div className="border-b-5 border-t-2 border-l-2 border-r-2 border-purple-500 h-9 w-9 rounded-full animate-spin drop-shadow-sm drop-shadow-purple-500" />
+           : "Send Message"}
         </button>
       </form>
     </>

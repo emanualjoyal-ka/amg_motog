@@ -17,9 +17,10 @@ export function RequestTable() {
     if(error){
         return <div>Error fetching requests</div>
     }
-    const filteredData = (data || []).filter(
-    (item: Request) => item.status !== "Request Received" && item.status !== "Delivered"
-  )
+    
+  const filteredData = Array.isArray(data) 
+    ? data.filter((item: Request) => item.status !== "Request Received" && item.status !== "Delivered")  
+    : [];
 
   return <DataTable columns={columns} data={filteredData} />
 }
