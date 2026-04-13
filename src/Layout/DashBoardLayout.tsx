@@ -30,7 +30,7 @@ const DashBoardLayout:React.FC<DashBoardLayoutProps> = ({children}) => {
 
   return (
     <div>
-         <div className="w-screen h-dvh relative overflow-hidden grid grid-cols-10 grid-rows-10 gap-2 p-2">
+         <div className="w-screen h-dvh overflow-hidden relative grid grid-cols-10 grid-rows-10 gap-2 p-2">
             <nav className="bg-white/5 backdrop-blur-md border border-white/10 row-start-1 row-end-2 col-start-1 col-end-11 md:col-start-3 flex items-center justify-between px-4 py-3 text-black rounded-lg ">
             <button onClick={openSidebar} >
             <Menu className="md:hidden text-white" />
@@ -54,7 +54,7 @@ const DashBoardLayout:React.FC<DashBoardLayoutProps> = ({children}) => {
               <DesktopSideBar/>
             </div>
 
-<main className="bg-white/5 backdrop-blur-md border border-white/10 row-start-2 row-end-11 col-start-1 col-end-11 md:col-start-3 rounded-lg p-4">
+<main className="bg-white/5 overflow-y-auto backdrop-blur-md border border-white/10 row-start-2 row-end-11 col-start-1 col-end-11 md:col-start-3 rounded-lg p-4">
 
           {children}
 </main>

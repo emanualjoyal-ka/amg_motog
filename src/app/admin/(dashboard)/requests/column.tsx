@@ -14,6 +14,7 @@ export type Request = {
   condition: string
   status: string
   year?: string
+  createdAt:string
 }
 
 const STATUS_OPTIONS = [
@@ -35,10 +36,17 @@ export const columns: ColumnDef<Request>[] =[
         accessorKey:"fullName",
         header:"Customer"
     },
-    {
-        accessorKey:"phone",
-        header:"Phone"
-    },
+     {
+  accessorKey: "createdAt",
+  header: "Date",
+  cell: ({ row }) => {
+    return new Date(row.original.createdAt).toLocaleDateString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    })
+  },
+},
   {
     header: "Bike", // combine brand + model
     accessorKey: "bikeBrand", // can be anything, just needed for typing
