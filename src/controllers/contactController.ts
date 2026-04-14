@@ -30,5 +30,10 @@ export const useGetAllContacts=()=>{
             const response=await axiosInstance.get(API_URL_CONSTANTS.GET_ALL_CONTACTS);
             return response.data.data;
         },
+         staleTime: 30000,
+    gcTime: 60000, //cache time 60s
+    refetchOnWindowFocus: false, //wont fetch when browser tab changes
+    refetchOnMount: false,
+    retry: 1,
     })
 }

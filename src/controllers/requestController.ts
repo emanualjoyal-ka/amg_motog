@@ -41,6 +41,11 @@ export const useGetAllRequests=()=>{
             const response=await axiosInstance.get(API_URL_CONSTANTS.GET_REQUESTS);
             return response.data.data;
         },
+         staleTime: 30000,
+    gcTime: 60000, //cache time 60s
+    refetchOnWindowFocus: false, //wont fetch when browser tab changes
+    refetchOnMount: false,
+    retry: 1,
     })
 }
 
