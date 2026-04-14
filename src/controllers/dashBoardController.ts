@@ -10,6 +10,11 @@ export const useGetDashBoardOverView=()=>{
             const response=await axiosInstance.get(DASHBOARD_API_URL_CONSTANTS.GET_DASHBOARD_OVER_VIEW);
             return response.data.data;
         },
+         staleTime: 30000,
+    gcTime: 60000, //cache time 60s
+    refetchOnWindowFocus: false, //wont fetch when browser tab changes
+    refetchOnMount: false,
+    retry: 1,
     })
 }
 export const useGetRequestChart=()=>{
@@ -19,6 +24,11 @@ export const useGetRequestChart=()=>{
             const response=await axiosInstance.get(DASHBOARD_API_URL_CONSTANTS.GET_REQUEST_CHART);
             return response.data.data;
         },
+         staleTime: 30000,
+    gcTime: 60000, //cache time 60s
+    refetchOnWindowFocus: false, //wont fetch when browser tab changes
+    refetchOnMount: false,
+    retry: 1,
     })
 }
 export const useGetStatusBreakdown=()=>{
@@ -28,6 +38,11 @@ export const useGetStatusBreakdown=()=>{
             const response=await axiosInstance.get(DASHBOARD_API_URL_CONSTANTS.GET_STATUS_BREAKDOWN);
             return response.data.data;
         },
+         staleTime: 30000,
+    gcTime: 60000, //cache time 60s
+    refetchOnWindowFocus: false, //wont fetch when browser tab changes
+    refetchOnMount: false,
+    retry: 1,
     })
 }
 
@@ -38,6 +53,11 @@ export const useGetLastSevenDaysRequests=()=>{
             const response=await axiosInstance.get(DASHBOARD_API_URL_CONSTANTS.GET_LAST_SEVEN_DAYS_REQUESTS);
             return response.data.data;
         },
+         staleTime: 30000,
+    gcTime: 60000, //cache time 60s
+    refetchOnWindowFocus: false, //wont fetch when browser tab changes
+    refetchOnMount: false,
+    retry: 1,
     })
 }
 
@@ -53,6 +73,11 @@ export const useGetRecentActivities = (limit: number) => {
       
       return response.data.data;
     },
+     staleTime: 30000,
+    gcTime: 60000, //cache time 60s
+    refetchOnWindowFocus: false, //wont fetch when browser tab changes
+    refetchOnMount: false,
+    retry: 1,
   });
 };
 
@@ -61,8 +86,12 @@ export const useGetCustomerOverView=()=>{
         queryKey:["customer_over-view"],
         queryFn:async()=>{
             const response=await axiosInstance.get(DASHBOARD_API_URL_CONSTANTS.GET_CUSTOMER_OVER_VIEW);
-            console.log(response.data.data);
             return response.data.data;
         },
+         staleTime: 30000,
+    gcTime: 60000, //cache time 60s
+    refetchOnWindowFocus: false, //wont fetch when browser tab changes
+    refetchOnMount: false,
+    retry: 1,
     })
 }
